@@ -166,6 +166,13 @@ const About = () => {
           <ul className="skills-list">
             {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
+
+          <div>
+            <p>
+              If you’re not sure how to to pronounce my name, you can watch this{' '}
+              <a href="https://youtu.be/Uar7SUKusEk?si=Utd_sOSK9Ra4hIWI"> video</a>.
+            </p>
+          </div>
         </StyledText>
 
         <StyledPic>

@@ -56,6 +56,7 @@ const StyledProject = styled.li`
         padding: 25px 25px 20px;
       }
     }
+
     .project-tech-list {
       justify-content: flex-end;
 
@@ -71,6 +72,7 @@ const StyledProject = styled.li`
         }
       }
     }
+
     .project-links {
       justify-content: flex-end;
       margin-left: 0;
@@ -82,6 +84,7 @@ const StyledProject = styled.li`
         margin-right: 0;
       }
     }
+
     .project-image {
       grid-column: 1 / 8;
 
