@@ -32,6 +32,7 @@ const StyledSocialLinks = styled.div`
 
     a {
       padding: 10px;
+
       svg {
         width: 20px;
         height: 20px;
@@ -58,6 +59,7 @@ const StyledCredit = styled.div`
       align-items: center;
       margin: 0 7px;
     }
+
     svg {
       display: inline-block;
       margin-right: 5px;
@@ -106,7 +108,11 @@ const Footer = () => {
 
       <StyledCredit tabindex="-1">
         <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Brittany Chiang</div>
+          <div>
+            {' '}
+            Designed and Built by Javier Paez, inspired by
+            <a href="https://github.com/bchiang7/v4">Brittany Chiang</a>
+          </div>
 
           {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">

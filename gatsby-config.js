@@ -2,12 +2,11 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Brittany Chiang',
-    description:
-      'Brittany Chiang is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+    title: 'Javier Paez Franco',
+    description: 'Javier Paez is a researcher specialized in Machine Learning and Robot Learning.',
+    siteUrl: 'https://jpaefra.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@jpaefra',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Javier Paez Franco',
+        short_name: 'Javier Paez',
         start_url: '/',
         background_color: config.colors.darkNavy,
         theme_color: config.colors.navy,
