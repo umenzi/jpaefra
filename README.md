@@ -1,18 +1,18 @@
-<div style="text-align: center;">
+<div align="center">
   <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
 </div>
-<h1 style="text-align: center;">
+<h1 align="center">
   jpaefra.com
 </h1>
 
-<p style="text-align: center;">
+<p align="center">
   The portfolio website of <a href="https://jpaefra.com" target="_blank">Javier Páez</a>.
 </p>
-<p style="text-align: center;">
+<p align="center">
   Inspired by <a href="https://github.com/bchiang7/v4" target="_blank">Brittany's portfolio website</a>.
 </p>
 
-<p style="text-align: center;">
+<p align="center">
   <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
   </a>
