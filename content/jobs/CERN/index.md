@@ -1,5 +1,5 @@
 ---
-date: '223-09-20'
+date: '2023-09-20'
 title: 'Internship'
 company: 'CERN IdeaSquare'
 location: 'Geneva, Switzerland'
