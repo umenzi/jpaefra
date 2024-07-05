@@ -142,17 +142,17 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Javier Páez Franco and I am a master student at
+              Hello! My name is Javier Páez Franco and I am a master student at{' '}
               <a href="https://www.imperial.ac.uk/" rel="noreferrer">
-                Imperial College
+                Imperial College{' '}
               </a>{' '}
-              🇬🇧. I am interested in Artificial Intelligence, and how it can be used into robotics
+              🇬🇧. I am interested in Artificial Intelligence, and how it can be applied to robotics
               applications. I am specially interested into Robot Learning using techniques such as
-              Reinforcement Learning. Previously, I obtained my BSc. from{' '}
+              Reinforcement Learning. Previously, I obtained my BSc. in Computer Science and
+              Engineering from
               <a href="https://www.tudelft.nl/">TU Delft</a> 🇳🇱, where I joined the challenging Next
-              Generation Robotics Honours Program at TU Delft, a two-year research program where ten
-              carefully selected B.Sc. students work on research projects at the TU Delft Robotics
-              Institute.
+              Generation Robotics Honours Program, a two-year research program where ten carefully
+              selected B.Sc. students work on research projects at the TU Delft Robotics Institute.
             </p>
 
             <p>
@@ -161,6 +161,8 @@ const About = () => {
               Netherlands, France, Germany, and Poland. I am also interested in video games and
               cinematography.
             </p>
+
+            <p>Here are a few technologies I’ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
