@@ -8,7 +8,7 @@ tech:
   - Cordova
   - Backbone
   - Marionette
-company: 'Starry'
+company: 'Your Next Agency'
 showInProjects: true
 ---
 

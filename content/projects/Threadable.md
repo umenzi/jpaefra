@@ -8,6 +8,6 @@ tech:
   - React Native
   - Ruby on Rails
   - Firebase
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---

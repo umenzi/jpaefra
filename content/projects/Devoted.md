@@ -7,7 +7,7 @@ tech:
   - Gatsby
   - TypeScript
   - Algolia
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---
 

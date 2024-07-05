@@ -7,6 +7,6 @@ tech:
   - React
   - TypeScript
   - Stats Perform API
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---

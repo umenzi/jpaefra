@@ -10,6 +10,6 @@ tech:
   - PHP
   - Algolia
   - JS
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---

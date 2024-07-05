@@ -9,6 +9,6 @@ tech:
   - NativeScript Vue
   - iOS
   - Android
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---

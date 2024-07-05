@@ -7,6 +7,6 @@ tech:
   - Storybook
   - React
   - TypeScript
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---

@@ -1,12 +1,12 @@
 ---
 date: '2019-11-25'
-title: 'Upstatement.com'
+title: 'Panacea Cooperative Research.com'
 github: ''
 external: 'https://www.upstatement.com/'
 tech:
   - Nuxt
   - Vue
   - Prismic
-company: 'Upstatement'
+company: 'Panacea Cooperative Research'
 showInProjects: false
 ---
