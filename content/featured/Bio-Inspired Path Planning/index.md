@@ -10,5 +10,5 @@ tech:
   - Research
 ---
 
-A modular, easy-to-use framework to compare performance of different bio-inspired algorithms in path planning
-applications, such as ACO, PSO, and FA. The framework has been used in a research project.
+A modular, easy-to-use framework to compare performance of bio-inspired algorithms in path planning
+applications, like ACO, PSO, FA. The framework has been used in research projects.

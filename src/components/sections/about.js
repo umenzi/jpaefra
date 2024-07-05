@@ -149,10 +149,10 @@ const About = () => {
               🇬🇧. I am interested in Artificial Intelligence, and how it can be applied to robotics
               applications. I am specially interested into Robot Learning using techniques such as
               Reinforcement Learning. Previously, I obtained my BSc. in Computer Science and
-              Engineering from
-              <a href="https://www.tudelft.nl/">TU Delft</a> 🇳🇱, where I joined the challenging Next
-              Generation Robotics Honours Program, a two-year research program where ten carefully
-              selected B.Sc. students work on research projects at the TU Delft Robotics Institute.
+              Engineering from <a href="https://www.tudelft.nl/">TU Delft</a> 🇳🇱, where I joined the
+              challenging Next Generation Robotics Honours Program, a two-year research program
+              where ten carefully selected B.Sc. students work on research projects at the TU Delft
+              Robotics Institute.
             </p>
 
             <p>
