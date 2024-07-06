@@ -45,6 +45,7 @@ const StyledTableContainer = styled.div`
           padding-left: 10px;
         }
       }
+
       &:last-child {
         padding-right: 20px;
 
@@ -66,6 +67,7 @@ const StyledTableContainer = styled.div`
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
       }
+
       td:last-child {
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
@@ -100,9 +102,11 @@ const StyledTableContainer = styled.div`
         font-size: var(--fz-xxs);
         font-family: var(--font-mono);
         line-height: 1.5;
+
         .separator {
           margin: 0 5px;
         }
+
         span {
           display: inline-block;
         }
@@ -153,7 +157,7 @@ const ArchivePage = ({ location, data }) => {
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <p className="subtitle">A big list of my research publications</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>
@@ -162,24 +166,17 @@ const ArchivePage = ({ location, data }) => {
               <tr>
                 <th>Year</th>
                 <th>Title</th>
-                <th className="hide-on-mobile">Made at</th>
-                <th className="hide-on-mobile">Built with</th>
+                <th className="hide-on-mobile">Authors</th>
+                <th className="hide-on-mobile">Journal</th>
+                <th className="hide-on-mobile">Tags</th>
                 <th>Link</th>
               </tr>
             </thead>
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const {
-                    date,
-                    github,
-                    external,
-                    ios,
-                    android,
-                    title,
-                    tech,
-                    company,
-                  } = node.frontmatter;
+                  const { date, github, external, title, authors, journal, tags } =
+                    node.frontmatter;
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
@@ -187,16 +184,20 @@ const ArchivePage = ({ location, data }) => {
                       <td className="title">{title}</td>
 
                       <td className="company hide-on-mobile">
-                        {company ? <span>{company}</span> : <span>—</span>}
+                        {authors ? <span>{authors}</span> : <span>—</span>}
+                      </td>
+
+                      <td className="company hide-on-mobile">
+                        {journal ? <span>{journal}</span> : <span>—</span>}
                       </td>
 
                       <td className="tech hide-on-mobile">
-                        {tech?.length > 0 &&
-                          tech.map((item, i) => (
+                        {tags?.length > 0 &&
+                          tags.map((item, i) => (
                             <span key={i}>
                               {item}
                               {''}
-                              {i !== tech.length - 1 && <span className="separator">&middot;</span>}
+                              {i !== tags.length - 1 && <span className="separator">&middot;</span>}
                             </span>
                           ))}
                       </td>
@@ -211,16 +212,6 @@ const ArchivePage = ({ location, data }) => {
                           {github && (
                             <a href={github} aria-label="GitHub Link">
                               <Icon name="GitHub" />
-                            </a>
-                          )}
-                          {ios && (
-                            <a href={ios} aria-label="Apple App Store Link">
-                              <Icon name="AppStore" />
-                            </a>
-                          )}
-                          {android && (
-                            <a href={android} aria-label="Google Play Store Link">
-                              <Icon name="PlayStore" />
                             </a>
                           )}
                         </div>
@@ -253,12 +244,11 @@ export const pageQuery = graphql`
           frontmatter {
             date
             title
-            tech
+            tags
             github
             external
-            ios
-            android
-            company
+            authors
+            journal
           }
           html
         }

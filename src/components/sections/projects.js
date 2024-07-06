@@ -19,6 +19,7 @@ const StyledProjectsSection = styled.section`
   .archive-link {
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
+
     &:after {
       bottom: 0.1em;
     }
@@ -82,6 +83,7 @@ const StyledProject = styled.li`
 
     .folder {
       color: var(--green);
+
       svg {
         width: 40px;
         height: 40px;
@@ -268,7 +270,7 @@ const Projects = () => {
       <h2 ref={revealTitle}>Publications</h2>
 
       <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
+        View the archive
       </Link>
 
       <ul className="projects-grid">
