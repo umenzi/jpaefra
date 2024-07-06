@@ -3,7 +3,7 @@ date: '2024-06-30'
 title: 'Robotics Researcher'
 company: 'Lunar Zebro'
 location: 'Delft, Netherlands'
-range: 'January - July 2024'
+range: 'January 2023 - July 2024'
 url: 'https://zebro.space/'
 ---
 
