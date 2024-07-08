@@ -9,10 +9,6 @@ const StyledMainContainer = styled.main`
 
 // Background color of our page
 const GlobalStyle = createGlobalStyle`
-  //html head {
-  //  meta[name='darkreader-lock']
-  //}
-
   html body {
     height: 100vh;
     width: 100%;
