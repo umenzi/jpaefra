@@ -9,6 +9,10 @@ const StyledMainContainer = styled.main`
 
 // Background color of our page
 const GlobalStyle = createGlobalStyle`
+  //html head {
+  //  meta[name='darkreader-lock']
+  //}
+
   html body {
     height: 100vh;
     width: 100%;
@@ -38,11 +42,36 @@ const Gradient = styled.div`
 const IndexPage = ({ location }) => {
   // We animate the gradient so that it follows the mouse pointer
   useEffect(() => {
-    const cursor = document.querySelector('#gradient');
+    const observeDOM = (container, callback) => {
+      const observer = new MutationObserver((mutationsList, observer) => {
+        if (document.querySelector('.gradient')) {
+          callback();
+          observer.disconnect(); // Stop observing once the element is found
+        }
+      });
 
-    document.addEventListener('mousemove', function(e) {
-      cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
-    });
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+      });
+    };
+
+    const applyMouseMoveEffect = () => {
+      const cursor = document.querySelector('.gradient');
+      document.addEventListener('mousemove', function(e) {
+        if (cursor) {
+          cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
+        }
+      });
+    };
+
+    // Start observing the body for changes including the addition of .gradient
+    observeDOM(document.body, applyMouseMoveEffect);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      document.removeEventListener('mousemove', applyMouseMoveEffect);
+    };
   }, []);
 
   // finally, we render the page
@@ -50,7 +79,7 @@ const IndexPage = ({ location }) => {
     <div>
       <GlobalStyle />
       <Layout location={location}>
-        <Gradient id="gradient" />
+        <Gradient className="gradient" />
         <StyledMainContainer className="fillHeight">
           <Hero />
           <About />
