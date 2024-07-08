@@ -372,6 +372,7 @@ const Featured = () => {
 
                     <div
                       className="project-description"
+                      style={{ textAlign: 'start' }}
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
 
