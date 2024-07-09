@@ -15,7 +15,8 @@ const StyledMainContainer = styled.main`
     a {
       &:hover,
       &:focus {
-        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>")
+        cursor:
+          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>")
             20 0,
           auto;
       }
@@ -78,7 +79,7 @@ const StyledPost = styled.li`
 
   .post__icon {
     ${({ theme }) => theme.mixins.flexBetween};
-    color: var(--green);
+    color: var(--red);
     margin-bottom: 30px;
     margin-left: -5px;
 
@@ -130,7 +131,7 @@ const StyledPost = styled.li`
     list-style: none;
 
     li {
-      color: var(--green);
+      color: var(--red);
       font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       line-height: 1.75;
@@ -211,7 +212,10 @@ export default PensievePage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" }, frontmatter: { draft: { ne: true } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/posts/" }
+        frontmatter: { draft: { ne: true } }
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

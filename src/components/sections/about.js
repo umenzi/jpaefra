@@ -39,7 +39,7 @@ const StyledText = styled.div`
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--red);
         font-size: var(--fz-sm);
         line-height: 12px;
       }
@@ -61,7 +61,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--red);
 
     &:hover,
     &:focus {
@@ -78,13 +78,14 @@ const StyledPic = styled.div`
       }
     }
 
-    .img {
-      position: relative;
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
-    }
+    // Uncomment the following to allow green filter when not hovering
+    //.img {
+    //  position: relative;
+    //  border-radius: var(--border-radius);
+    //  mix-blend-mode: multiply;
+    //  filter: grayscale(100%) contrast(1);
+    //  transition: var(--transition);
+    //}
 
     &:before,
     &:after {
@@ -105,7 +106,7 @@ const StyledPic = styled.div`
     }
 
     &:after {
-      border: 2px solid var(--green);
+      border: 2px solid var(--red);
       top: 14px;
       left: 14px;
       z-index: -1;
