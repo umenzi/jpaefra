@@ -79,13 +79,13 @@ const StyledPic = styled.div`
     }
 
     // Uncomment the following to allow green filter when not hovering
-    //.img {
-    //  position: relative;
-    //  border-radius: var(--border-radius);
-    //  mix-blend-mode: multiply;
-    //  filter: grayscale(100%) contrast(1);
-    //  transition: var(--transition);
-    //}
+    .img {
+      position: relative;
+      border-radius: var(--border-radius);
+      //mix-blend-mode: multiply;
+      //filter: grayscale(100%) contrast(1);
+      transition: var(--transition);
+    }
 
     &:before,
     &:after {
