@@ -1,11 +1,11 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
-import { Layout } from '@components'
-import { IconBookmark } from '@components/icons'
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import { Layout } from '@components';
+import { IconBookmark } from '@components/icons';
 
 const StyledMainContainer = styled.main`
   & > header {
@@ -26,7 +26,7 @@ const StyledMainContainer = styled.main`
     width: 100%;
     margin-top: 20px;
   }
-`
+`;
 const StyledGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
   display: grid;
@@ -38,7 +38,7 @@ const StyledGrid = styled.ul`
   @media (max-width: 1080px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-`
+`;
 const StyledPost = styled.li`
   transition: var(--transition);
   cursor: default;
@@ -118,6 +118,7 @@ const StyledPost = styled.li`
     font-family: var(--font-mono);
     font-size: var(--fz-xxs);
     text-transform: uppercase;
+    margin-right: 25px;
   }
 
   ul.post__tags {
@@ -139,10 +140,10 @@ const StyledPost = styled.li`
       }
     }
   }
-`
+`;
 
 const BlogPage = ({ location, data }) => {
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout location={location}>
@@ -156,9 +157,9 @@ const BlogPage = ({ location, data }) => {
         <StyledGrid>
           {posts.length > 0 &&
             posts.map(({ node }, i) => {
-              const { frontmatter } = node
-              const { title, description, slug, date, tags } = frontmatter
-              const formattedDate = new Date(date).toLocaleDateString()
+              const { frontmatter } = node;
+              const { title, description, slug, date, tags } = frontmatter;
+              const formattedDate = new Date(date).toLocaleDateString();
 
               return (
                 <StyledPost key={i}>
@@ -179,7 +180,7 @@ const BlogPage = ({ location, data }) => {
                         {tags.map((tag, i) => (
                           <li key={i}>
                             <Link to={`/blog/tags/${kebabCase(tag)}/`}
-                                  className="inline-link">
+                              className="inline-link">
                               #{tag}
                             </Link>
                           </li>
@@ -188,20 +189,20 @@ const BlogPage = ({ location, data }) => {
                     </footer>
                   </div>
                 </StyledPost>
-              )
+              );
             })}
         </StyledGrid>
       </StyledMainContainer>
     </Layout>
-  )
-}
+  );
+};
 
 BlogPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
-}
+};
 
-export default BlogPage
+export default BlogPage;
 
 export const pageQuery = graphql`
   {
@@ -227,4 +228,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
