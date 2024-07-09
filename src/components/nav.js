@@ -7,7 +7,6 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo, IconHex } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -61,52 +60,6 @@ const StyledNav = styled.nav`
   font-family: var(--font-mono);
   counter-reset: item 0;
   z-index: 12;
-
-  .logo {
-    ${({ theme }) => theme.mixins.flexCenter};
-
-    a {
-      color: var(--red);
-      width: 42px;
-      height: 42px;
-      position: relative;
-      z-index: 1;
-
-      .hex-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        @media (prefers-reduced-motion: no-preference) {
-          transition: var(--transition);
-        }
-      }
-
-      .logo-container {
-        position: relative;
-        z-index: 1;
-        svg {
-          fill: none;
-          user-select: none;
-          @media (prefers-reduced-motion: no-preference) {
-            transition: var(--transition);
-          }
-          polygon {
-            fill: var(--navy);
-          }
-        }
-      }
-
-      &:hover,
-      &:focus {
-        outline: 0;
-        transform: translate(-4px, -4px);
-        .hex-container {
-          transform: translate(4px, 3px);
-        }
-      }
-    }
-  }
 `;
 
 const StyledLinks = styled.div`
@@ -150,6 +103,39 @@ const StyledLinks = styled.div`
   }
 `;
 
+// make last letter blink
+const BlinkyLink = styled.div`
+  a {
+    &:after {
+      content: '_';
+      animation: blink 2s infinite;
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        1% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+        }
+        51% {
+          opacity: 1;
+        }
+      }
+    }
+
+    font-size: var(--fz-xxl);
+    font-family: var(--font-mono);
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: var(--red);
+    }
+  }
+`;
+
 const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
@@ -182,37 +168,21 @@ const Nav = ({ isHome }) => {
   const fadeDownClass = isHome ? 'fadedown' : '';
 
   const Logo = (
-    <div className="logo" tabIndex="-1">
-      {isHome ? (
-        <a href="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
-        </a>
-      ) : (
-        <Link to="/" aria-label="home">
-          <div className="hex-container">
-            <IconHex />
-          </div>
-          <div className="logo-container">
-            <IconLogo />
-          </div>
-        </Link>
-      )}
-    </div>
+    <BlinkyLink>
+      <Link to="/">&gt;</Link>
+    </BlinkyLink>
   );
 
   const ResumeLink = (
-    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+    <a className="resume-button" href="/resume.pdf" target="_blank"
+      rel="noopener noreferrer">
       Resume
     </a>
   );
 
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}>
       <StyledNav>
         {prefersReducedMotion ? (
           <>
@@ -230,7 +200,7 @@ const Nav = ({ isHome }) => {
               <div>{ResumeLink}</div>
             </StyledLinks>
 
-            <Menu />
+            <Menu/>
           </>
         ) : (
           <>
@@ -248,8 +218,13 @@ const Nav = ({ isHome }) => {
                   {isMounted &&
                     navLinks &&
                     navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                      <CSSTransition key={i} classNames={fadeDownClass}
+                        timeout={timeout}>
+                        <li key={i} style={{
+                          transitionDelay: `${isHome
+                            ? i * 100
+                            : 0}ms`,
+                        }}>
                           <Link to={url}>{name}</Link>
                         </li>
                       </CSSTransition>
@@ -260,7 +235,11 @@ const Nav = ({ isHome }) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                    <div style={{
+                      transitionDelay: `${isHome
+                        ? navLinks.length * 100
+                        : 0}ms`,
+                    }}>
                       {ResumeLink}
                     </div>
                   </CSSTransition>
@@ -271,7 +250,7 @@ const Nav = ({ isHome }) => {
             <TransitionGroup component={null}>
               {isMounted && (
                 <CSSTransition classNames={fadeClass} timeout={timeout}>
-                  <Menu />
+                  <Menu/>
                 </CSSTransition>
               )}
             </TransitionGroup>
