@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
-import { Layout } from '@components'
+import React from 'react';
+import { Link, graphql } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import { Layout } from '@components';
 
 const StyledTagsContainer = styled.main`
   max-width: 1000px;
@@ -30,7 +30,7 @@ const StyledTagsContainer = styled.main`
       }
     }
   }
-`
+`;
 
 const TagsPage = ({
   data: {
@@ -52,7 +52,7 @@ const TagsPage = ({
         {group.map(tag => (
           <li key={tag.fieldValue}>
             <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}
-                  className="inline-link">
+              className="inline-link">
               {tag.fieldValue} <span className="count">({tag.totalCount})</span>
             </Link>
           </li>
@@ -60,7 +60,7 @@ const TagsPage = ({
       </ul>
     </StyledTagsContainer>
   </Layout>
-)
+);
 
 TagsPage.propTypes = {
   data: PropTypes.shape({
@@ -79,17 +79,17 @@ TagsPage.propTypes = {
     }),
   }),
   location: PropTypes.object,
-}
+};
 
-export default TagsPage
+export default TagsPage;
 
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(limit: 2000, filter: { frontmatter: { draft: { ne: true } } }) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
     }
   }
-`
+`;
