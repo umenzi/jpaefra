@@ -54,7 +54,7 @@
    npm run build
    ```
 
-1. Preview the site as it will appear once deployed
+2. Preview the site as it will appear once deployed
 
    ```sh
    npm run serve
@@ -74,4 +74,4 @@ The color variables are all defined in `src/styles/variables.js`.
 | Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
 | White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
 | Red            | ![#e85a4f](https://via.placeholder.com/10/e85a4f?text=+) `#e85a4f` |
-| `--green-tint` | ![#f6bdb9](https://via.placeholder.com/10/f6bdb9?text=+) `#f6bdb9` |
+| Red tint       | ![#f6bdb9](https://via.placeholder.com/10/f6bdb9?text=+) `#f6bdb9` |
