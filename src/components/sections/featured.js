@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
 import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -339,15 +338,11 @@ const Featured = () => {
   const featuredProjects = data.featured.edges.filter(({ node }) => node);
   const revealTitle = useRef(null);
   const revealProjects = useRef([]);
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
     sr.reveal(revealTitle.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+    revealProjects.current.forEach(
+      (ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
   return (
@@ -364,7 +359,8 @@ const Featured = () => {
             const image = getImage(cover);
 
             return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <StyledProject key={i}
+                ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
                   <div>
                     <p className="project-overline">Featured Project</p>
@@ -395,12 +391,13 @@ const Featured = () => {
                       )}
                       {github && (
                         <a href={github} aria-label="GitHub Link">
-                          <Icon name="GitHub" />
+                          <Icon name="GitHub"/>
                         </a>
                       )}
                       {external && !cta && (
-                        <a href={external} aria-label="External Link" className="external">
-                          <Icon name="External" />
+                        <a href={external} aria-label="External Link"
+                          className="external">
+                          <Icon name="External"/>
                         </a>
                       )}
                     </div>
@@ -409,7 +406,7 @@ const Featured = () => {
 
                 <div className="project-image">
                   <a href={external ? external : github ? github : '#'}>
-                    <GatsbyImage image={image} alt={title} className="img" />
+                    <GatsbyImage image={image} alt={title} className="img"/>
                   </a>
                 </div>
               </StyledProject>

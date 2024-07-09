@@ -7,7 +7,6 @@ import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { Layout } from '@components';
 import { Icon } from '@components/icons';
-import { usePrefersReducedMotion } from '@hooks';
 
 const StyledTableContainer = styled.div`
   margin: 100px -20px;
@@ -138,21 +137,17 @@ const ArchivePage = ({ location, data }) => {
   const revealTitle = useRef(null);
   const revealTable = useRef(null);
   const revealProjects = useRef([]);
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
     sr.reveal(revealTitle.current, srConfig());
     sr.reveal(revealTable.current, srConfig(200, 0));
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 10)));
+    revealProjects.current.forEach(
+      (ref, i) => sr.reveal(ref, srConfig(i * 10)));
   }, []);
 
   return (
     <Layout location={location}>
-      <Helmet title="Archive" />
+      <Helmet title="Archive"/>
 
       <main>
         <header ref={revealTitle}>
@@ -174,51 +169,61 @@ const ArchivePage = ({ location, data }) => {
             </thead>
             <tbody>
               {projects.length > 0 &&
-                projects.map(({ node }, i) => {
-                  const { date, github, external, title, authors, journal, tags } =
-                    node.frontmatter;
-                  return (
-                    <tr key={i} ref={el => (revealProjects.current[i] = el)}>
-                      <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
+              projects.map(({ node }, i) => {
+                const {
+                  date,
+                  github,
+                  external,
+                  title,
+                  authors,
+                  journal,
+                  tags,
+                } =
+                  node.frontmatter;
+                return (
+                  <tr key={i} ref={el => (revealProjects.current[i] = el)}>
+                    <td className="overline year">{`${new Date(
+                      date).getFullYear()}`}</td>
 
-                      <td className="title">{title}</td>
+                    <td className="title">{title}</td>
 
-                      <td className="company hide-on-mobile">
-                        {authors ? <span>{authors}</span> : <span>—</span>}
-                      </td>
+                    <td className="company hide-on-mobile">
+                      {authors ? <span>{authors}</span> : <span>—</span>}
+                    </td>
 
-                      <td className="company hide-on-mobile">
-                        {journal ? <span>{journal}</span> : <span>—</span>}
-                      </td>
+                    <td className="company hide-on-mobile">
+                      {journal ? <span>{journal}</span> : <span>—</span>}
+                    </td>
 
-                      <td className="tech hide-on-mobile">
-                        {tags?.length > 0 &&
-                          tags.map((item, i) => (
-                            <span key={i}>
-                              {item}
-                              {''}
-                              {i !== tags.length - 1 && <span className="separator">&middot;</span>}
-                            </span>
-                          ))}
-                      </td>
+                    <td className="tech hide-on-mobile">
+                      {tags?.length > 0 &&
+                        tags.map((item, i) => (
+                          <span key={i}>
+                            {item}
+                            {''}
+                            {i !== tags.length - 1 &&
+                              <span className="separator">&middot;</span>}
+                          </span>
+                        ))}
+                    </td>
 
-                      <td className="links">
-                        <div>
-                          {external && (
-                            <a href={external} aria-label="External Link">
-                              <Icon name="External" />
-                            </a>
-                          )}
-                          {github && (
-                            <a href={github} aria-label="GitHub Link">
-                              <Icon name="GitHub" />
-                            </a>
-                          )}
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                })}
+                    <td className="links">
+                      <div>
+                        {external && (
+                          <a href={external} aria-label="External Link">
+                            <Icon name="External"/>
+                          </a>
+                        )}
+                        {github && (
+                          <a href={github} aria-label="GitHub Link">
+                            <Icon name="GitHub"/>
+                          </a>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </StyledTableContainer>

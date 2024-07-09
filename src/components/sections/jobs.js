@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { srConfig } from '@config';
 import { KEY_CODES } from '@utils';
 import sr from '@utils/sr';
-import { usePrefersReducedMotion } from '@hooks';
 
 const StyledJobsSection = styled.section`
   max-width: 1000px;
@@ -55,6 +54,7 @@ const StyledTabList = styled.div`
         margin-left: 25px;
       }
     }
+
     &:last-of-type {
       @media (max-width: 600px) {
         padding-right: 50px;
@@ -195,13 +195,8 @@ const Jobs = () => {
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
   const revealContainer = useRef(null);
-  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
@@ -249,7 +244,8 @@ const Jobs = () => {
       <h2 className="numbered-heading">Where I’ve Worked</h2>
 
       <div className="inner">
-        <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
+        <StyledTabList role="tablist" aria-label="Job tabs"
+          onKeyDown={e => onKeyDown(e)}>
           {jobsData &&
             jobsData.map(({ node }, i) => {
               const { company } = node.frontmatter;
@@ -268,7 +264,7 @@ const Jobs = () => {
                 </StyledTabButton>
               );
             })}
-          <StyledHighlight activeTabId={activeTabId} />
+          <StyledHighlight activeTabId={activeTabId}/>
         </StyledTabList>
 
         <StyledTabPanels>
@@ -278,7 +274,8 @@ const Jobs = () => {
               const { title, url, company, range } = frontmatter;
 
               return (
-                <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                <CSSTransition key={i} in={activeTabId === i} timeout={250}
+                  classNames="fade">
                   <StyledTabPanel
                     id={`panel-${i}`}
                     role="tabpanel"
@@ -298,7 +295,7 @@ const Jobs = () => {
 
                     <p className="range">{range}</p>
 
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <div dangerouslySetInnerHTML={{ __html: html }}/>
                   </StyledTabPanel>
                 </CSSTransition>
               );
