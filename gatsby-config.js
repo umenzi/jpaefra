@@ -1,4 +1,4 @@
-const config = require('./src/config')
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
@@ -93,7 +93,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.green },
             },
           },
           {
@@ -179,4 +178,4 @@ module.exports = {
       },
     },
   ],
-}
+};
