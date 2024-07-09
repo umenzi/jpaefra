@@ -16,39 +16,61 @@ import {
   IconStar,
   IconTwitter,
 } from '@components/icons';
+// font awesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGithub,
+  faYoutube,
+  faLinkedin,
+  faMedium,
+  faItchIo,
+  faFreeCodeCamp,
+} from '@fortawesome/free-brands-svg-icons';
 
 const Icon = ({ name }) => {
   switch (name) {
     case 'AppStore':
-      return <IconAppStore />;
+      return <IconAppStore/>;
     case 'Bookmark':
-      return <IconBookmark />;
+      return <IconBookmark/>;
     case 'Codepen':
-      return <IconCodepen />;
+      return <IconCodepen/>;
     case 'External':
-      return <IconExternal />;
+      return <IconExternal/>;
     case 'Folder':
-      return <IconFolder />;
+      return <IconFolder/>;
     case 'Fork':
-      return <IconFork />;
+      return <IconFork/>;
     case 'GitHub':
-      return <IconGitHub />;
+      return <FontAwesomeIcon icon={faGithub}/>;
+    case 'GitHub_Old':
+      return <IconGitHub/>;
     case 'Instagram':
-      return <IconInstagram />;
+      return <IconInstagram/>;
     case 'Linkedin':
-      return <IconLinkedin />;
+      return <FontAwesomeIcon icon={faLinkedin}/>;
+    case 'Linkedin_Old':
+      return <IconLinkedin/>;
     case 'Loader':
-      return <IconLoader />;
+      return <IconLoader/>;
     case 'Logo':
-      return <IconLogo />;
+      return <IconLogo/>;
     case 'PlayStore':
-      return <IconPlayStore />;
+      return <IconPlayStore/>;
     case 'Star':
-      return <IconStar />;
+      return <IconStar/>;
     case 'Twitter':
-      return <IconTwitter />;
+      return <IconTwitter/>;
+    case 'FreeCodeCamp':
+      return <FontAwesomeIcon icon={faFreeCodeCamp}/>;
+    case 'ItchIo':
+      return <FontAwesomeIcon icon={faItchIo}/>;
+    case 'YouTube':
+      return <FontAwesomeIcon icon={faYoutube}/>;
+    case 'Medium':
+      return <FontAwesomeIcon icon={faMedium}/>;
     default:
-      return <IconExternal />;
+      return <IconExternal/>;
   }
 };
 
