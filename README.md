@@ -20,7 +20,17 @@
 
 ![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
 
-## 🛠 Installation & Set Up
+# 🛠 Installation & Set Up
+
+## With Docker
+
+1. Run the docker-compose file
+
+   ```sh
+   docker-compose up
+   ```
+
+## Native
 
 1. Install the Gatsby CLI
 
@@ -65,7 +75,7 @@
 The color variables are all defined in `src/styles/variables.js`.
 
 | Color          | Hex                                                                |
-| -------------- | ------------------------------------------------------------------ |
+|----------------|--------------------------------------------------------------------|
 | Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
 | Light Navy     | ![#112240](https://via.placeholder.com/10/0a192f?text=+) `#112240` |
 | Lightest Navy  | ![#233554](https://via.placeholder.com/10/303C55?text=+) `#233554` |
