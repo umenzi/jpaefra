@@ -1,4 +1,4 @@
-const config = require('./src/config');
+const config = require('./src/config')
 
 module.exports = {
   siteMetadata: {
@@ -166,10 +166,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      // Google Analytics
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-45666519-2',
+        trackingIds: ['GTM-WL7PS7HG'],
+      },
+      gtagConfig: {
+        // We care for the privacy of our users :)
+        anonymize_ip: true,
+        respectDNT: true,
+        cookie_expires: 0,
       },
     },
   ],
-};
+}
