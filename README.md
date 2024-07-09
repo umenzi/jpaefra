@@ -62,6 +62,8 @@
 
 ## 🎨 Color Reference
 
+The color variables are all defined in `src/styles/variables.js`.
+
 | Color          | Hex                                                                |
 | -------------- | ------------------------------------------------------------------ |
 | Navy           | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) `#0a192f` |
@@ -71,4 +73,5 @@
 | Light Slate    | ![#a8b2d1](https://via.placeholder.com/10/a8b2d1?text=+) `#a8b2d1` |
 | Lightest Slate | ![#ccd6f6](https://via.placeholder.com/10/ccd6f6?text=+) `#ccd6f6` |
 | White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
-| Green          | ![#64ffda](https://via.placeholder.com/10/64ffda?text=+) `#64ffda` |
+| Red            | ![#e85a4f](https://via.placeholder.com/10/e85a4f?text=+) `#e85a4f` |
+| `--green-tint` | ![#f6bdb9](https://via.placeholder.com/10/f6bdb9?text=+) `#f6bdb9` |
