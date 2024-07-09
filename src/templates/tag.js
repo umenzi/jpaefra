@@ -26,13 +26,16 @@ const StyledTagsContainer = styled.main`
   ul {
     li {
       font-size: 24px;
+
       h2 {
         font-size: inherit;
         margin: 0;
+
         a {
           color: var(--light-slate);
         }
       }
+
       .subtitle {
         color: var(--slate);
         font-size: var(--fz-sm);
@@ -51,18 +54,18 @@ const TagTemplate = ({ pageContext, data, location }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title={`Tagged: #${tag}`} />
+      <Helmet title={`Tagged: #${tag}`}/>
 
       <StyledTagsContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link to="/pensieve">All memories</Link>
+          <Link to="/blog">Blog</Link>
         </span>
 
         <h1>
           <span>#{tag}</span>
           <span>
-            <Link to="/pensieve/tags">View all tags</Link>
+            <Link to="/blog/tags">View all tags</Link>
           </span>
         </h1>
 
@@ -86,7 +89,8 @@ const TagTemplate = ({ pageContext, data, location }) => {
                   {tags &&
                     tags.length > 0 &&
                     tags.map((tag, i) => (
-                      <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className="tag">
+                      <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`}
+                        className="tag">
                         #{tag}
                       </Link>
                     ))}
