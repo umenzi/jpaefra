@@ -12,8 +12,13 @@ const StyledAboutSection = styled.section`
     grid-template-columns: 3fr 2fr;
     grid-gap: 50px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       display: block;
+    }
+
+    // Prevent container from jumping
+    @media (min-width: 700px) {
+      min-height: 340px;
     }
   }
 `;
