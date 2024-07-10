@@ -176,6 +176,11 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
 
+  .very-big-heading {
+    margin: 0;
+    font-size: clamp(40px, 9vw, 100px);
+  }
+
   .big-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 80px);
