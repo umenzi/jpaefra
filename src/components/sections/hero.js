@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
+import { ReactTyped } from 'react-typed';
 import { navDelay, loaderDelay } from '@utils';
 
 const StyledHeroSection = styled.section`
@@ -45,6 +46,14 @@ const StyledHeroSection = styled.section`
   }
 `;
 
+const TEXTS = [
+  'I\'m a roboticist',
+  'I\'m a violinist',
+  'I\'m a filmmaker',
+  'I\'m a software engineer',
+  'I\'m a grad student',
+];
+
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -55,7 +64,13 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is</h1>;
   const two = <h2 className="very-big-heading">Javier Páez.</h2>;
-  const three = <h3 className="big-heading">Shaping the future.</h3>;
+  // Typing effect
+  const three = (
+    <h3 className="big-heading">
+      <ReactTyped strings={TEXTS} typeSpeed={100} smartBackspace={true}
+        backDelay={1500} backSpeed={50} loop/>
+    </h3>
+  );
   const four = (
     <>
       <p>
