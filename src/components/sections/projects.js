@@ -203,11 +203,11 @@ const Projects = () => {
       (ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
 
-  const GRID_LIMIT = 6;
+  const GRID_LIMIT = 3;
   const projects = data.projects.edges.filter(({ node }) => node);
   const allowShowButton = projects.length > 6;
-  const firstSix = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstSix;
+  const projectLimit = projects.slice(0, GRID_LIMIT);
+  const projectsToShow = showMore ? projects : projectLimit;
 
   const projectInner = node => {
     const { frontmatter, html } = node;
