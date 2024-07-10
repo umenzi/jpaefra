@@ -15,8 +15,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        filter: { fileAbsolutePath: { regex: "/content/blog/" } }
+        sort: { frontmatter: { date: DESC } }
         limit: 1000
       ) {
         edges {
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
       tagsGroup: allMarkdownRemark(limit: 2000) {
-        group(field: frontmatter___tags) {
+        group(field: { frontmatter: { tags: SELECT } }) {
           fieldValue
         }
       }
@@ -41,7 +41,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return;
   }
 
-  // Create post detail pages
+  // Create blog detail pages
   const posts = result.data.postsRemark.edges;
 
   posts.forEach(({ node }) => {
@@ -57,7 +57,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Make tag pages
   tags.forEach(tag => {
     createPage({
-      path: `/pensieve/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,

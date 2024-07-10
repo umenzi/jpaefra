@@ -15,10 +15,8 @@ const StyledMainContainer = styled.main`
     a {
       &:hover,
       &:focus {
-        cursor:
-          url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>")
-            20 0,
-          auto;
+        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>") 20 0,
+        auto;
       }
     }
   }
@@ -120,6 +118,7 @@ const StyledPost = styled.li`
     font-family: var(--font-mono);
     font-size: var(--fz-xxs);
     text-transform: uppercase;
+    margin-right: 25px;
   }
 
   ul.post__tags {
@@ -143,21 +142,16 @@ const StyledPost = styled.li`
   }
 `;
 
-const PensievePage = ({ location, data }) => {
+const BlogPage = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges;
 
   return (
     <Layout location={location}>
-      <Helmet title="Pensieve" />
+      <Helmet title="Knowledge Base"/>
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
-          <p className="subtitle">
-            <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
-              a collection of memories
-            </a>
-          </p>
+          <h1 className="big-heading">Blog</h1>
         </header>
 
         <StyledGrid>
@@ -172,7 +166,7 @@ const PensievePage = ({ location, data }) => {
                   <div className="post__inner">
                     <header>
                       <div className="post__icon">
-                        <IconBookmark />
+                        <IconBookmark/>
                       </div>
                       <h5 className="post__title">
                         <Link to={slug}>{title}</Link>
@@ -185,7 +179,8 @@ const PensievePage = ({ location, data }) => {
                       <ul className="post__tags">
                         {tags.map((tag, i) => (
                           <li key={i}>
-                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className="inline-link">
+                            <Link to={`/blog/tags/${kebabCase(tag)}/`}
+                              className="inline-link">
                               #{tag}
                             </Link>
                           </li>
@@ -202,21 +197,21 @@ const PensievePage = ({ location, data }) => {
   );
 };
 
-PensievePage.propTypes = {
+BlogPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 };
 
-export default PensievePage;
+export default BlogPage;
 
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/content/posts/" }
+        fileAbsolutePath: { regex: "/content/blog/" }
         frontmatter: { draft: { ne: true } }
       }
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

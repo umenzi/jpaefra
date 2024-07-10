@@ -1,4 +1,4 @@
-const config = require('./src/config')
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
@@ -14,7 +14,12 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/`,
+      },
+    },
     `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -58,8 +63,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/content/posts`,
+        name: `Blog`,
+        path: `${__dirname}/content/blog`,
       },
     },
     {
@@ -88,7 +93,6 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
-              tracedSVG: { color: config.colors.green },
             },
           },
           {
@@ -161,10 +165,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      // Google Analytics
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: 'UA-45666519-2',
+        trackingIds: ['GTM-WL7PS7HG'],
+      },
+      gtagConfig: {
+        // We care for the privacy of our users :)
+        anonymize_ip: true,
+        respectDNT: true,
+        cookie_expires: 0,
       },
     },
   ],
-}
+};

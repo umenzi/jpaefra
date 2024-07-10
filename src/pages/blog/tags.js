@@ -12,6 +12,7 @@ const StyledTagsContainer = styled.main`
   h1 {
     margin-bottom: 50px;
   }
+
   ul {
     color: var(--light-slate);
 
@@ -38,19 +39,20 @@ const TagsPage = ({
   location,
 }) => (
   <Layout location={location}>
-    <Helmet title="Tags" />
+    <Helmet title="Tags"/>
 
     <StyledTagsContainer>
       <span className="breadcrumb">
         <span className="arrow">&larr;</span>
-        <Link to="/pensieve">All memories</Link>
+        <Link to="/blog">Blog</Link>
       </span>
 
       <h1>Tags</h1>
       <ul className="fancy-list">
         {group.map(tag => (
           <li key={tag.fieldValue}>
-            <Link to={`/pensieve/tags/${kebabCase(tag.fieldValue)}/`} className="inline-link">
+            <Link to={`/blog/tags/${kebabCase(tag.fieldValue)}/`}
+              className="inline-link">
               {tag.fieldValue} <span className="count">({tag.totalCount})</span>
             </Link>
           </li>
@@ -84,7 +86,7 @@ export default TagsPage;
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(limit: 2000, filter: { frontmatter: { draft: { ne: true } } }) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }
