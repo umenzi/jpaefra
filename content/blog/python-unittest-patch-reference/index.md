@@ -11,6 +11,8 @@ tags:
   - patch
 ---
 
+# Introduction
+
 I've been writing some unit tests the other day, and ran into an interesting issue
 
 I have a piece of code that, as a part of it fetches a secret from AWS. I want to test this piece of code.
@@ -38,6 +40,8 @@ def test_app(mock_fetch_secret):
     do_important_thing()
     assert mock_fetch_secret.called
 ```
+
+# The issue
 
 So my thinking here is - I mock fetch_secret, and all is well. Right?
 
