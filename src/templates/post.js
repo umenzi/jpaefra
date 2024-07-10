@@ -1,21 +1,21 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import kebabCase from 'lodash/kebabCase'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
-import { Layout } from '@components'
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import kebabCase from 'lodash/kebabCase';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components';
+import { Layout } from '@components';
 
 const StyledPostContainer = styled.main`
   max-width: 1200px;
-`
+`;
 const StyledPostHeader = styled.header`
   margin-bottom: 50px;
 
   .tag {
     margin-right: 10px;
   }
-`
+`;
 const StyledPostContent = styled.div`
   margin-bottom: 100px;
 
@@ -50,11 +50,11 @@ const StyledPostContent = styled.div`
     background-color: transparent;
     padding: 0;
   }
-`
+`;
 
 const PostTemplate = ({ data, location }) => {
-  const { frontmatter, html } = data.markdownRemark
-  const { title, date, tags } = frontmatter
+  const { frontmatter, html } = data.markdownRemark;
+  const { title, date, tags } = frontmatter;
 
   return (
     <Layout location={location}>
@@ -81,7 +81,7 @@ const PostTemplate = ({ data, location }) => {
               tags.length > 0 &&
               tags.map((tag, i) => (
                 <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`}
-                      className="tag">
+                  className="tag">
                   #{tag}
                 </Link>
               ))}
@@ -91,15 +91,15 @@ const PostTemplate = ({ data, location }) => {
         <StyledPostContent dangerouslySetInnerHTML={{ __html: html }}/>
       </StyledPostContainer>
     </Layout>
-  )
-}
+  );
+};
 
-export default PostTemplate
+export default PostTemplate;
 
 PostTemplate.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object,
-}
+};
 
 export const pageQuery = graphql`
   query($path: String!) {
@@ -114,4 +114,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

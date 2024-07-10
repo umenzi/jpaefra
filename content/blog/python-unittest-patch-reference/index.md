@@ -2,8 +2,8 @@
 title: Why my patch() did not work
 description: An interesting issue I ran into when writing a Python unit test
 date: '2024-03-13'
-draft: true
-slug: '/blog/python-unittest-patch-reference'
+draft: false
+slug: '/blog/python-unittest-patch-reference/'
 tags:
   - python
   - testing
