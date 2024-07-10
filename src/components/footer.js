@@ -79,16 +79,16 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/umenzi/jpaefra')
-      .then(response => response.json())
-      .then(json => {
+    fetch('https://api.github.com/repos/umenzi/jpaefra').
+      then(response => response.json()).
+      then(json => {
         const { stargazers_count, forks_count } = json;
         setGitHubInfo({
           stars: stargazers_count,
           forks: forks_count,
         });
-      })
-      .catch(e => console.error(e));
+      }).
+      catch(e => console.error(e));
   }, []);
 
   return (
@@ -99,7 +99,7 @@ const Footer = () => {
             socialMedia.map(({ name, url }, i) => (
               <li key={i}>
                 <a href={url} aria-label={name}>
-                  <Icon name={name} />
+                  <Icon name={name}/>
                 </a>
               </li>
             ))}
@@ -113,19 +113,6 @@ const Footer = () => {
             Designed and Built by Javier Paez, inspired by
             <a href="https://github.com/bchiang7/v4">Brittany Chiang</a>
           </div>
-
-          {githubInfo.stars && githubInfo.forks && (
-            <div className="github-stats">
-              <span>
-                <Icon name="Star" />
-                <span>{githubInfo.stars.toLocaleString()}</span>
-              </span>
-              <span>
-                <Icon name="Fork" />
-                <span>{githubInfo.forks.toLocaleString()}</span>
-              </span>
-            </div>
-          )}
         </a>
       </StyledCredit>
     </StyledFooter>
