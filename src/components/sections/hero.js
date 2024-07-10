@@ -62,7 +62,7 @@ const Hero = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
+  const one = <h1>👋 Hi, my name is</h1>;
   const two = <h2 className="very-big-heading">Javier Páez.</h2>;
   // Typing effect
   const three = (
@@ -75,8 +75,7 @@ const Hero = () => {
     <>
       <p>
         I'm a master student interested in Artificial Intelligence,
-        Reinforcement Learning, and
-        Robot Learning.
+        Reinforcement Learning, and Robot Learning.
       </p>
     </>
   );
