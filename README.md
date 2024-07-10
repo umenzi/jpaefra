@@ -20,6 +20,15 @@
 
 ![demo](https://raw.githubusercontent.com/umenzi/jpaefra/main/src/images/demo.png)
 
+# 🚨 Forking this repo (please read!)
+
+Feel free to fork this repository, but please give proper credit by linking back
+to both [my work](https://github.com/umenzi/jpaefra) and [Brittany's](https://github.com/bchiang7/v4).
+I introduced a lot of changes and improvements that require attribution. Thanks!
+
+Please also note that I did not build this site with the intention of it being a starter theme, so if you have questions
+about implementation, please refer to the [Gatsby docs](https://www.gatsbyjs.org/docs/).
+
 # 🛠 Installation & Set Up
 
 ## With Docker
