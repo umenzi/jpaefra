@@ -49,23 +49,6 @@ const StyledCredit = styled.div`
   a {
     padding: 10px;
   }
-
-  .github-stats {
-    margin-top: 10px;
-
-    & > span {
-      display: inline-flex;
-      align-items: center;
-      margin: 0 7px;
-    }
-
-    svg {
-      display: inline-block;
-      margin-right: 5px;
-      width: 14px;
-      height: 14px;
-    }
-  }
 `;
 
 const Footer = () => (
@@ -86,7 +69,7 @@ const Footer = () => (
     <StyledCredit tabindex="-1">
       <div>
         Designed and built by<a href="https://github.com/umenzi/jpaefra">Javier
-        Paez,</a>inspired by<a href="https://github.com/bchiang7/v4">Brittany
+        Páez,</a>inspired by<a href="https://github.com/bchiang7/v4">Brittany
         Chiang</a>
       </div>
     </StyledCredit>
