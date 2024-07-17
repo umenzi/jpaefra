@@ -132,7 +132,7 @@ def test_app(mock_fetch_secret):
 
 ```
 
-Lets run the test again:
+Let's run the test again:
 
 ```bash
  python -m pytest -s
@@ -172,11 +172,12 @@ FAILED tests/test_app.py::test_app - AssertionError: assert False
 ======================== 1 failed in 0.02s ========================
 ```
 
-From the output we see that the object id of `fetch_secret` is consistently `140109394215936`. we NEVER use the mocked object.
+From the output we see that the object id of `fetch_secret` is consistently `140109394215936`. we NEVER use the mocked
+object.
 
 A clue is the order in which the messages are printed.
 
-```title=order of imports
+```python:title=order_of_imports
     1. (secret_fetcher.py) real fetch_secret id is: 139637776270336
     2. (important_code.py) has imported fetch_secret with id: 139637776270336
     2. (test_app.py) pre-test imported fetch_secret id is: 139637776270336
@@ -184,7 +185,8 @@ A clue is the order in which the messages are printed.
     4. (important_code.py) do_important_thing() id of fetch_secret is: 139637776270336
 ```
 
-Pay attention to how early `important_code.py` imports `fetch_secret` - we had no chance to patch it so early, and our mock does not replace the original object!
+Pay attention to how early `important_code.py` imports `fetch_secret` - we had no chance to patch it so early, and our
+mock does not replace the original object!
 
 Now, lets patch correctly with `@patch("helpers.important_code.fetch_secret")` and see what happens
 
@@ -210,7 +212,9 @@ I am doing something important
 
 Interesting!
 
-We've retained the old object id throughout, with exception of where we've explicitly patched it for `helpers.important_code.fetch_secret`
-This means that the specific call to `fetch_secret` from within `important_code.py` has been replaced with our mocked function - without it we'd still be calling the original function, as it has been imported during initialization.
+We've retained the old object id throughout, except where we've explicitly patched it
+for `helpers.important_code.fetch_secret`
+This means that the specific call to `fetch_secret` from within `important_code.py` has been replaced with our mocked
+function - without it, we'd still be calling the original function, as it has been imported during initialization.
 
 Now when we perform the assertion, we correctly validate that the mock with id of `139748469163008` has been called!
