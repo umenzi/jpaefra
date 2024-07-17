@@ -85,10 +85,9 @@ const Footer = () => (
 
     <StyledCredit tabindex="-1">
       <div>
-        {' '}
-        Designed and built by <a href="https://github.com/umenzi/jpaefra">Javier
-        Paez</a>, inspired by
-        <a href="https://github.com/bchiang7/v4">Brittany Chiang</a>
+        Designed and built by<a href="https://github.com/umenzi/jpaefra">Javier
+        Paez,</a>inspired by<a href="https://github.com/bchiang7/v4">Brittany
+        Chiang</a>
       </div>
     </StyledCredit>
   </StyledFooter>
