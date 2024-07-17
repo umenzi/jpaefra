@@ -145,7 +145,7 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Javier Páez Franco and I am a master student
+              Hello! I am Javier Páez Franco, a Master's student
               at{' '}
               <a href="https://www.imperial.ac.uk/" rel="noreferrer">
                 Imperial College{' '}
@@ -156,7 +156,7 @@ const About = () => {
             </p>
 
             <p>
-              Previously, I obtained my BSc. in Computer Science and
+              Previously, I obtained my B.Sc. in Computer Science and
               Engineering from <a href="https://www.tudelft.nl/">TU
               Delft</a> 🇳🇱, where I joined the challenging Next Generation
               Robotics Honours Program, a two-year research program

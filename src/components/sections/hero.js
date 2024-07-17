@@ -74,7 +74,7 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        I'm a master student interested in Artificial Intelligence,
+        I'm a Master's student interested in Artificial Intelligence,
         Reinforcement Learning, and Robot Learning.
       </p>
     </>
