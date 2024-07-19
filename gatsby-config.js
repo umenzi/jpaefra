@@ -2,7 +2,7 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'jpaefra',
+    title: 'Javier Paez Franco',
     description: 'Javier Paez is a researcher specialized in Machine Learning and Robot Learning.',
     siteUrl: 'https://jpaefra.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
