@@ -21,7 +21,8 @@ variety of prompts, from
 to
 
 > "In a dystopian future, humanity has abandoned Earth and terraformed Mars, creating a new utopia. However, a group of
-> rebels emerges, fighting for the right to return to their home planet. Write a story exploring the ethical dilemmas and
+> rebels emerges, fighting for the right to return to their home planet. Write a story exploring the ethical dilemmas
+> and
 > consequences of this conflict."
 
 But why should we limit ourselves to using ChatGPT only through the website? Wouldn't it be great if we could access
@@ -40,12 +41,13 @@ an API key via https://platform.openai.com/account/api-keys.
 ## Interacting with ChatGPT
 
 The OpenAI team provides quite a few endpoints, but the one we're interested in is `chat`
-at https://api.openai.com/v1/chat/completions. Below is an example curl request to this API:
+at https://api.openai.com/v1/chat/completions. Below is an example curl request to this API (note that the API key
+has been hidden, `XXXXX`):
 
 ```shell{outputLines: 2-8}{promptUser: rich}{promptHost: localhost}
 curl https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer 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" \
+  -H "Authorization: Bearer XXXXX" \
   -d '{
      "model": "gpt-3.5-turbo",
      "messages": [{"role": "user", "content": "What is the capital of Taiwan?"}],
