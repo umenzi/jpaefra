@@ -11,14 +11,6 @@ const StyledMainContainer = styled.main`
   & > header {
     margin-bottom: 100px;
     text-align: center;
-
-    a {
-      &:hover,
-      &:focus {
-        cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>⚡</text></svg>") 20 0,
-        auto;
-      }
-    }
   }
 
   footer {
@@ -26,12 +18,22 @@ const StyledMainContainer = styled.main`
     width: 100%;
     margin-top: 20px;
   }
+
+  .tags-link {
+    font-family: var(--font-mono);
+    margin-top: 20px;
+    font-size: var(--fz-xxs);
+
+    &:after {
+      bottom: 0.1em;
+    }
+  }
 `;
 const StyledGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-gap: 35px;
   margin-top: 50px;
   position: relative;
 
@@ -90,7 +92,11 @@ const StyledPost = styled.li`
   .post__title {
     margin: 0 0 10px;
     color: var(--lightest-slate);
-    font-size: var(--fz-xxl);
+    font-size: var(--fz-xxxl);
+
+    @media (max-width: 1080px) {
+      font-size: var(--fz-xxl);
+    }
 
     a {
       position: static;
@@ -110,7 +116,11 @@ const StyledPost = styled.li`
 
   .post__desc {
     color: var(--light-slate);
-    font-size: 17px;
+    font-size: var(--fz-xl);
+
+    @media (max-width: 1080px) {
+      font-size: var(--fz-lg);
+    }
   }
 
   .post__date {
@@ -147,11 +157,17 @@ const BlogPage = ({ location, data }) => {
 
   return (
     <Layout location={location}>
-      <Helmet title="Knowledge Base"/>
+      <Helmet title="Blog"/>
 
       <StyledMainContainer>
         <header>
           <h1 className="big-heading">Blog</h1>
+
+          <p className="subtitle">Some articles that I have written</p>
+
+          <Link to="/blog/tags/" className="inline-link tags-link">
+            View all tags
+          </Link>
         </header>
 
         <StyledGrid>
