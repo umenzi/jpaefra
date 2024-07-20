@@ -54,6 +54,16 @@ const PrismStyles = css`
   * 3. Adjust the position of the line numbers
   */
 
+  .gatsby-highlight pre[class*='language-'] {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow: initial;
+    float: left; /* 1 */
+    min-width: 100%; /* 2 */
+    padding-top: 2em;
+  }
+
   /* Command line prompts */
 
   .command-line-prompt > span:before {
@@ -69,23 +79,21 @@ const PrismStyles = css`
     content: '[' '~/' attr(data-user) '@' attr(data-host) '] $';
   }
 
+
+  /* Prompt for root */
+
+  .command-line-prompt > span[data-user="root"]:before {
+    content: "[" attr(data-user) "@" attr(data-host) "] #";
+  }
+
   .command-line-prompt > span[data-prompt]:before {
     content: attr(data-prompt);
   }
 
-  .gatsby-highlight pre[class*='language-'] {
-    background-color: transparent;
-    margin: 0;
-    padding: 0;
-    overflow: initial;
-    float: left; /* 1 */
-    min-width: 100%; /* 2 */
-    padding-top: 2em;
+  .gatsby-highlight pre[class*='language-'].line-numbers {
+    padding-left: 3em;
   }
 
-  .gatsby-highlight pre[class*='language-'].line-numbers {
-    padding-left: 3.8em;
-  }
 
   /* File names */
 
@@ -161,6 +169,10 @@ const PrismStyles = css`
 
   .gatsby-highlight pre[class='language-ruby']::before {
     content: 'ruby';
+  }
+
+  .gatsby-highlight pre[class='language-python']::before {
+    content: 'python';
   }
 
   .gatsby-highlight pre[class='language-mdx']::before {

@@ -6,3 +6,5 @@
 
 require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 require('prismjs/plugins/command-line/prism-command-line.css');
+require('prismjs/plugins/autolinker/prism-autolinker.css');
+require('prismjs/plugins/normalize-whitespace/prism-normalize-whitespace');
