@@ -20,6 +20,7 @@ const PrismStyles = css`
   * Add back the container background-color, border-radius, padding, margin
   * and overflow that we removed from <pre>.
   */
+
   .gatsby-highlight {
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
@@ -52,6 +53,26 @@ const PrismStyles = css`
   * 2. Always fill the visible space in .gatsby-highlight.
   * 3. Adjust the position of the line numbers
   */
+
+  /* Command line prompts */
+
+  .command-line-prompt > span:before {
+    color: #999;
+    content: ' ';
+    display: block;
+    padding-right: 0.8em;
+  }
+
+  /* Prompt for all users */
+
+  .command-line-prompt > span[data-user]:before {
+    content: '[' '~/' attr(data-user) '@' attr(data-host) '] $';
+  }
+
+  .command-line-prompt > span[data-prompt]:before {
+    content: attr(data-prompt);
+  }
+
   .gatsby-highlight pre[class*='language-'] {
     background-color: transparent;
     margin: 0;
@@ -62,7 +83,12 @@ const PrismStyles = css`
     padding-top: 2em;
   }
 
+  .gatsby-highlight pre[class*='language-'].line-numbers {
+    padding-left: 3.8em;
+  }
+
   /* File names */
+
   .gatsby-code-title {
     padding: 1em 1.5em;
     font-family: var(--font-mono);
@@ -81,6 +107,7 @@ const PrismStyles = css`
   }
 
   /* Line highlighting */
+
   .gatsby-highlight-code-line {
     display: block;
     background-color: ${prismColors.lineHighlight};
@@ -92,6 +119,7 @@ const PrismStyles = css`
   }
 
   /* Language badges */
+
   .gatsby-highlight pre[class*='language-']::before {
     background: var(--lightest-navy);
     color: var(--white);
@@ -106,60 +134,82 @@ const PrismStyles = css`
     left: 1.25rem;
     padding: 0.25rem 0.5rem;
   }
+
   .gatsby-highlight pre[class='language-javascript']::before {
     content: 'js';
   }
+
   .gatsby-highlight pre[class='language-js']::before {
     content: 'js';
   }
+
   .gatsby-highlight pre[class='language-jsx']::before {
     content: 'jsx';
   }
+
   .gatsby-highlight pre[class='language-graphql']::before {
     content: 'GraphQL';
   }
+
   .gatsby-highlight pre[class='language-html']::before {
     content: 'html';
   }
+
   .gatsby-highlight pre[class='language-css']::before {
     content: 'css';
   }
+
+  .gatsby-highlight pre[class='language-ruby']::before {
+    content: 'ruby';
+  }
+
   .gatsby-highlight pre[class='language-mdx']::before {
     content: 'mdx';
   }
+
   .gatsby-highlight pre[class='language-shell']::before {
     content: 'shell';
   }
+
   .gatsby-highlight pre[class='language-sh']::before {
     content: 'sh';
   }
+
   .gatsby-highlight pre[class='language-bash']::before {
     content: 'bash';
   }
+
   .gatsby-highlight pre[class='language-yaml']::before {
     content: 'yaml';
   }
+
   .gatsby-highlight pre[class='language-markdown']::before {
     content: 'md';
   }
+
   .gatsby-highlight pre[class='language-json']::before,
   .gatsby-highlight pre[class='language-json5']::before {
     content: 'json';
   }
+
   .gatsby-highlight pre[class='language-diff']::before {
     content: 'diff';
   }
+
   .gatsby-highlight pre[class='language-text']::before {
     content: 'text';
   }
+
   .gatsby-highlight pre[class='language-flow']::before {
     content: 'flow';
   }
 
   /* Prism Styles */
+
   .token {
     display: inline;
   }
+
   .token.comment,
   .token.block-comment,
   .token.prolog,
@@ -167,13 +217,16 @@ const PrismStyles = css`
   .token.cdata {
     color: ${prismColors.comment};
   }
+
   .token.punctuation {
     color: ${prismColors.grey};
   }
+
   .token.namespace,
   .token.deleted {
     color: ${prismColors.red};
   }
+
   .token.function-name,
   .token.function,
   .token.class-name,
@@ -181,17 +234,20 @@ const PrismStyles = css`
   .token.symbol {
     color: ${prismColors.yellow};
   }
+
   .token.attr-name,
   .token.operator,
   .token.rule {
     color: ${prismColors.orange};
   }
+
   .token.keyword,
   .token.boolean,
   .token.number,
   .token.property {
     color: ${prismColors.purple};
   }
+
   .token.tag,
   .token.selector,
   .token.important,
@@ -201,6 +257,7 @@ const PrismStyles = css`
   .token.url {
     color: ${prismColors.blue};
   }
+
   .token.string,
   .token.char,
   .token.attr-value,
@@ -209,16 +266,20 @@ const PrismStyles = css`
   .token.inserted {
     color: ${prismColors.green};
   }
+
   .token.important,
   .token.bold {
     font-weight: 600;
   }
+
   .token.italic {
     font-style: italic;
   }
+
   .token.entity {
     cursor: help;
   }
+
   .namespace {
     opacity: 0.7;
   }

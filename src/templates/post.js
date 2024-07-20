@@ -19,12 +19,7 @@ const StyledPostHeader = styled.header`
 const StyledPostContent = styled.div`
   margin-bottom: 100px;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     margin: 2em 0 1em;
   }
 
