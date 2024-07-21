@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
   */
   :focus:not(:focus-visible) {
     outline: none;
-    outline-offset: 0px;
+    outline-offset: 0;
   }
 
   /*
@@ -350,8 +350,8 @@ const GlobalStyle = createGlobalStyle`
     border-left-color: var(--red);
     border-left-style: solid;
     border-left-width: 1px;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0;
+    margin-right: 0;
     padding-left: 1.5rem;
 
     p {
@@ -363,7 +363,7 @@ const GlobalStyle = createGlobalStyle`
   hr {
     background-color: var(--lightest-navy);
     height: 1px;
-    border-width: 0px;
+    border-width: 0;
     border-style: initial;
     border-color: initial;
     border-image: initial;
@@ -456,6 +456,20 @@ const GlobalStyle = createGlobalStyle`
 
   .gatsby-image-outer-wrapper {
     height: 100%;
+  }
+
+  // Customize opy button in markdown
+  .gatsby-remark-prismjs-copy-button-container {
+    left: 0;
+    top: 55px;
+  }
+
+  .gatsby-remark-prismjs-copy-button {
+    font-size: var(--fz-sm);
+  }
+
+  .gatsby-remark-prismjs-copy-button:hover {
+    background-color: var(--lightest-navy);
   }
 
   ${TransitionStyles}

@@ -96,9 +96,38 @@ module.exports = {
             },
           },
           {
+            // https://www.gatsbyjs.com/plugins/gatsby-remark-smartypants/
+            resolve: `gatsby-remark-smartypants`,
+          },
+          {
+            // https://www.gatsbyjs.com/plugins/gatsby-remark-katex/
+            resolve: `gatsby-remark-katex`,
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`,
+            },
+          },
+          {
             // https://www.gatsbyjs.org/packages/gatsby-remark-code-titles/
             resolve: 'gatsby-remark-code-titles',
           }, // IMPORTANT: this must be ahead of other plugins that use code blocks
+          {
+            // https://www.gatsbyjs.com/plugins/gatsby-remark-autolink-headers/
+            resolve: `gatsby-remark-autolink-headers`,
+          }, // IMPORTANT: this must be ahead of the prism plugin, if present
+          {
+            // https://github.com/thundermiracle/gatsby-remark-prismjs-copy-button
+            resolve: `gatsby-remark-prismjs-copy-button`,
+          }, // IMPORTANT: this must be ahead of the prism plugin, if present
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+          },
+          {
+            resolve: `gatsby-remark-lazy-load`,
+          },
+          {
+            resolve: `gatsby-plugin-catch-links`,
+          },
           {
             // https://www.gatsbyjs.org/packages/gatsby-remark-prismjs
             resolve: `gatsby-remark-prismjs`,

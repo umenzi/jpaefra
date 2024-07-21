@@ -88,3 +88,19 @@ The color variables are all defined in `src/styles/variables.js`.
 | White          | ![#e6f1ff](https://via.placeholder.com/10/e6f1ff?text=+) `#e6f1ff` |
 | Red            | ![#e85a4f](https://via.placeholder.com/10/e85a4f?text=+) `#e85a4f` |
 | Red tint       | ![#f6bdb9](https://via.placeholder.com/10/f6bdb9?text=+) `#f6bdb9` |
+
+## Markdown
+
+Some notes about the markdown files:
+
+- If you want to use iframe elements (e.g., YouTube videos), it is recommended to load them lazily (as they can drain a
+  lot of internet data) and provide the height and width (so that Gatsby can scale them responsively). For example:
+
+    ```html
+      <iframe
+        title="Lebron James ends Jason Terry's life with an alley oop dunk."
+        class="lazyload" type="text/html" width="640" height="360"
+        data-src="https://www.youtube.com/watch?v=V-QTiByTKaI"
+        frameborder="0" allowfullscreen>
+      </iframe>
+  ```
