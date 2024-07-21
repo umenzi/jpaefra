@@ -89,6 +89,12 @@ The color variables are all defined in `src/styles/variables.js`.
 | Red            | ![#e85a4f](https://via.placeholder.com/10/e85a4f?text=+) `#e85a4f` |
 | Red tint       | ![#f6bdb9](https://via.placeholder.com/10/f6bdb9?text=+) `#f6bdb9` |
 
+## LightHouse
+
+The website has been optimized for performance, accessibility, best practices, and SEO. The scores are as follows:
+
+![results](https://raw.githubusercontent.com/umenzi/jpaefra/main/src/images/lighthouse_results.png)
+
 ## Markdown
 
 Some notes about the markdown files:
