@@ -68,9 +68,17 @@ const Footer = () => (
 
     <StyledCredit tabindex="-1">
       <div>
-        Designed and built by<a href="https://github.com/umenzi/jpaefra">Javier
-        Páez,</a>inspired by<a href="https://github.com/bchiang7/v4">Brittany
-        Chiang</a>
+        Designed and built by<a
+          href="https://github.com/umenzi/jpaefra">Javier Páez.</a>
+      </div>
+
+      <div>
+        Inspired by<a href="https://github.com/bchiang7/v4">Brittany Chiang.</a>
+      </div>
+
+      <div>
+        This project is licensed under the<a
+          href="/mit">MIT License.</a>
       </div>
     </StyledCredit>
   </StyledFooter>
