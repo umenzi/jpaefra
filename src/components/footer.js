@@ -66,7 +66,7 @@ const Footer = () => (
       </ul>
     </StyledSocialLinks>
 
-    <StyledCredit tabindex="-1">
+    <StyledCredit tabIndex="-1">
       <div>
         Designed and built by<a
           href="https://github.com/umenzi/jpaefra">Javier Páez.</a>
