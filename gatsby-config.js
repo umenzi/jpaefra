@@ -26,8 +26,8 @@ module.exports = {
       options: {
         trackPageViews: true,
         events: true,
-        eventsGlobal: 'sa_event',
-        ignorePages: [],
+        eventsGlobal: 'sa',
+        ignorePages: ['pathname'],
       },
     },
     {
