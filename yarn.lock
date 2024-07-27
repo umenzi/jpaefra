@@ -6073,6 +6073,11 @@ gatsby-plugin-sharp@^5.12.0:
     semver "^7.5.3"
     sharp "^0.32.6"
 
+gatsby-plugin-simple-analytics@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-simple-analytics/-/gatsby-plugin-simple-analytics-1.0.4.tgz#5e8671733423d48eb9c9162c46cb73b2b0ed2a21"
+  integrity sha512-Routbv22mlVybTafCJD6iby9/1NH26e3+r3Byr1LO1EB1y7xqn8gSre+2LQOLhBY3kaeVoB0iOaPtuL6YYLeCw==
+
 gatsby-plugin-sitemap@^6.12.0:
   version "6.13.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-6.13.1.tgz#c8752b3c57ff237ad01493b1b89ab26ac5635abb"

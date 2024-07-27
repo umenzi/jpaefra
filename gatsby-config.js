@@ -22,6 +22,15 @@ module.exports = {
     },
     `gatsby-plugin-robots-txt`,
     {
+      resolve: 'gatsby-plugin-simple-analytics',
+      options: {
+        trackPageViews: true,
+        events: true,
+        eventsGlobal: 'sa_event',
+        ignorePages: [],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Javier Paez Franco',
