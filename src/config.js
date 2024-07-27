@@ -3,6 +3,10 @@ module.exports = {
 
   socialMedia: [
     {
+      name: 'RSS',
+      url: '/index.xml',
+    },
+    {
       name: 'GitHub',
       url: 'https://github.com/umenzi',
     },

@@ -14,6 +14,7 @@ import {
   IconPlayStore,
   IconStar,
   IconTwitter,
+  IconRss,
 } from '@components/icons';
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -68,6 +69,8 @@ const Icon = ({ name }) => {
       return <FontAwesomeIcon icon={faYoutube}/>;
     case 'Medium':
       return <FontAwesomeIcon icon={faMedium}/>;
+    case 'RSS':
+      return <IconRss/>;
     default:
       return <IconExternal/>;
   }

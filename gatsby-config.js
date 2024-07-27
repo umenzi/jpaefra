@@ -45,6 +45,63 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({
+              query: {
+                site,
+                allMarkdownRemark,
+              },
+            }) => allMarkdownRemark.nodes.map(
+              node => Object.assign({}, node.frontmatter, {
+                description: node.excerpt,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                guid: site.siteMetadata.siteUrl + node.frontmatter.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              })),
+            query: `
+              {
+                allMarkdownRemark(
+                  filter: {
+                    fileAbsolutePath: { regex: "/content/blog/" }
+                    frontmatter: { draft: { ne: true } }
+                  }
+                  sort: { frontmatter: { date: DESC } }
+                ) {
+                  nodes {
+                    frontmatter {
+                      title
+                      date
+                      slug
+                    }
+                    excerpt
+                    html
+                  }
+                }
+              }
+            `,
+            output: 'index.xml',
+            title: 'Jpaefra\'s RSS Feed',
+          },
+        ],
+      },
+    },
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,

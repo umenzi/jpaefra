@@ -12,3 +12,4 @@ export { default as IconLoader } from './loader';
 export { default as IconPlayStore } from './playstore';
 export { default as IconStar } from './star';
 export { default as IconTwitter } from './twitter';
+export { default as IconRss } from './rss';
