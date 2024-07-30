@@ -1,4 +1,4 @@
-const config = require('./src/config');
+const config = require('./src/config')
 
 module.exports = {
   siteMetadata: {
@@ -25,9 +25,8 @@ module.exports = {
       resolve: 'gatsby-plugin-simple-analytics',
       options: {
         trackPageViews: true,
+        domain: 'api.jpaefra.com',
         events: true,
-        eventsGlobal: 'sa',
-        ignorePages: ['pathname'],
       },
     },
     {
@@ -260,5 +259,5 @@ module.exports = {
       },
     },
   ],
-};
+}
 
