@@ -1,4 +1,4 @@
-const config = require('./src/config')
+const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
@@ -259,5 +259,5 @@ module.exports = {
       },
     },
   ],
-}
+};
 
