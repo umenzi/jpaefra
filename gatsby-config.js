@@ -24,9 +24,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-simple-analytics',
       options: {
-        trackPageViews: true,
         domain: 'api.jpaefra.com',
+        eventsGlobal: 'sa',
         events: true,
+        trackPageViews: true,
       },
     },
     {
