@@ -25,11 +25,11 @@ const variables = css`
     --fz-xs: 13px;
     --fz-sm: 14px;
     --fz-md: 16px;
-    --fz-lg: 18px;
-    --fz-xl: 20px;
-    --fz-xxl: 22px;
-    --fz-xxxl: 26px;
-    --fz-heading: 32px;
+    --fz-lg: 17px;
+    --fz-xl: 19px;
+    --fz-xxl: 21px;
+    --fz-xxxl: 25px;
+    --fz-heading: 31px;
 
     --border-radius: 4px;
     --nav-height: 100px;

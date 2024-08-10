@@ -126,7 +126,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 200px 150px;
 
     @media (max-width: 1080px) {
-      padding: 200px 100px;
+      padding: 200px 120px;
     }
     @media (max-width: 768px) {
       padding: 150px 50px;
@@ -356,7 +356,6 @@ const GlobalStyle = createGlobalStyle`
 
     p {
       font-style: italic;
-      font-size: 24px;
     }
   }
 
