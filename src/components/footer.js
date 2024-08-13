@@ -42,7 +42,7 @@ const StyledSocialLinks = styled.div`
 
 const StyledCredit = styled.div`
   color: var(--light-slate);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: var(--fz-xxs);
   line-height: 1;
 
@@ -55,14 +55,13 @@ const Footer = () => (
   <StyledFooter>
     <StyledSocialLinks>
       <ul>
-        {socialMedia &&
-          socialMedia.map(({ name, url }, i) => (
-            <li key={i}>
-              <a href={url} aria-label={name}>
-                <Icon name={name}/>
-              </a>
-            </li>
-          ))}
+        {socialMedia?.map(({ name, url }, i) => (
+          <li key={i}>
+            <a href={url} aria-label={name}>
+              <Icon name={name}/>
+            </a>
+          </li>
+        ))}
       </ul>
     </StyledSocialLinks>
 

@@ -99,7 +99,7 @@ const StyledTableContainer = styled.div`
 
       &.tech {
         font-size: var(--fz-xxs);
-        font-family: var(--font-mono);
+        font-family: var(--font-mono), monospace;
         line-height: 1.5;
 
         .separator {

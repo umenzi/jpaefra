@@ -16,7 +16,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .archive-link {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: var(--fz-sm);
 
     &:after {
@@ -155,7 +155,7 @@ const StyledProject = styled.li`
     list-style: none;
 
     li {
-      font-family: var(--font-mono);
+      font-family: var(--font-mono), monospace;
       font-size: var(--fz-xxs);
       line-height: 1.75;
 
@@ -263,6 +263,10 @@ const Projects = () => {
     );
   };
 
+  function onClick() {
+    return () => setShowMore(!showMore);
+  }
+
   return (
     <StyledProjectsSection>
       <h2 ref={revealTitle}>Publications</h2>
@@ -274,29 +278,28 @@ const Projects = () => {
 
       <ul className="projects-grid">
         <TransitionGroup component={null}>
-          {projectsToShow &&
-            projectsToShow.map(({ node }, i) => (
-              <CSSTransition
+          {projectsToShow?.map(({ node }, i) => (
+            <CSSTransition
+              key={i}
+              classNames="fadeup"
+              timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+              exit={false}>
+              <StyledProject
                 key={i}
-                classNames="fadeup"
-                timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
-                exit={false}>
-                <StyledProject
-                  key={i}
-                  ref={el => (revealProjects.current[i] = el)}
-                  style={{
-                    transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) *
-                      100 : 0}ms`,
-                  }}>
-                  {projectInner(node)}
-                </StyledProject>
-              </CSSTransition>
-            ))}
+                ref={el => (revealProjects.current[i] = el)}
+                style={{
+                  transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) *
+                    100 : 0}ms`,
+                }}>
+                {projectInner(node)}
+              </StyledProject>
+            </CSSTransition>
+          ))}
         </TransitionGroup>
       </ul>
 
       {allowShowButton && (
-        <button className="more-button" onClick={() => setShowMore(!showMore)}>
+        <button className="more-button" onClick={onClick()}>
           Show {showMore ? 'Less' : 'More'}
         </button>
       )}

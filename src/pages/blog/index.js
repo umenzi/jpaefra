@@ -20,7 +20,7 @@ const StyledMainContainer = styled.main`
   }
 
   .tags-link {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     margin-top: 20px;
     font-size: var(--fz-xxs);
 
@@ -125,7 +125,7 @@ const StyledPost = styled.li`
 
   .post__date {
     color: var(--light-slate);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: var(--fz-xxs);
     text-transform: uppercase;
     margin-right: 25px;
@@ -141,7 +141,7 @@ const StyledPost = styled.li`
 
     li {
       color: var(--red);
-      font-family: var(--font-mono);
+      font-family: var(--font-mono), monospace;
       font-size: var(--fz-xxs);
       line-height: 1.75;
 

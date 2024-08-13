@@ -111,7 +111,7 @@ const StyledSidebar = styled.aside`
     width: 100%;
     flex-direction: column;
     color: var(--lightest-slate);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     text-align: center;
   }
 
@@ -232,8 +232,12 @@ const Menu = () => {
     };
   }, []);
 
+  function onClick() {
+    return () => setMenuOpen(false);
+  }
+
   const wrapperRef = useRef();
-  useOnClickOutside(wrapperRef, () => setMenuOpen(false));
+  useOnClickOutside(wrapperRef, onClick());
 
   return (
     <StyledMenu>
@@ -258,7 +262,7 @@ const Menu = () => {
               <ol>
                 {navLinks.map(({ url, name }, i) => (
                   <li key={i}>
-                    <Link to={url} onClick={() => setMenuOpen(false)}>
+                    <Link to={url} onClick={onClick()}>
                       {name}
                     </Link>
                   </li>

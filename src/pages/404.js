@@ -13,7 +13,7 @@ const StyledMainContainer = styled.main`
 `;
 const StyledTitle = styled.h1`
   color: var(--red);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
 `;

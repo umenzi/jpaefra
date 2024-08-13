@@ -46,14 +46,13 @@ const StyledSocialList = styled.ul`
 const Social = ({ isHome }) => (
   <Side isHome={isHome} orientation="left">
     <StyledSocialList>
-      {socialMedia &&
-        socialMedia.map(({ url, name }, i) => (
-          <li key={i}>
-            <a href={url} aria-label={name} target="_blank" rel="noreferrer">
-              <Icon name={name} />
-            </a>
-          </li>
-        ))}
+      {socialMedia?.map(({ url, name }, i) => (
+        <li key={i}>
+          <a href={url} aria-label={name} target="_blank" rel="noreferrer">
+            <Icon name={name} />
+          </a>
+        </li>
+      ))}
     </StyledSocialList>
   </Side>
 );

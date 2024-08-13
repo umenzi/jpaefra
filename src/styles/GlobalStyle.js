@@ -83,7 +83,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     background-color: var(--navy);
     color: var(--slate);
-    font-family: var(--font-sans);
+    font-family: var(--font-sans), sans-serif;
     font-size: var(--fz-xl);
     line-height: 1.3;
 
@@ -207,7 +207,7 @@ const GlobalStyle = createGlobalStyle`
       content: '0' counter(section) '.';
       margin-right: 10px;
       color: var(--red);
-      font-family: var(--font-mono);
+      font-family: var(--font-mono), monospace;
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
 
@@ -370,7 +370,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: var(--fz-md);
   }
 
@@ -405,7 +405,7 @@ const GlobalStyle = createGlobalStyle`
 
   .overline {
     color: var(--red);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: var(--fz-md);
     font-weight: 400;
   }
@@ -414,7 +414,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--red);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
@@ -444,7 +444,7 @@ const GlobalStyle = createGlobalStyle`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-      font-family: var(--font-mono);
+      font-family: var(--font-mono), monospace;
       font-size: var(--fz-sm);
       font-weight: 600;
       line-height: 1.5;

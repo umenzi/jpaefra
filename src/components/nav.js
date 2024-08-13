@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   z-index: 11;
-  padding: 0px 50px;
+  padding: 0 50px;
   width: 100%;
   height: var(--nav-height);
   background-color: rgba(10, 25, 47, 0.85);
@@ -55,7 +55,7 @@ const StyledNav = styled.nav`
   position: relative;
   width: 100%;
   color: var(--lightest-slate);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), monospace;
   counter-reset: item 0;
   z-index: 12;
 `;
@@ -107,7 +107,7 @@ const StyledLinks = styled.div`
   }
 `;
 
-// make last letter blink
+// make the last letter blink
 const BlinkyLink = styled.div`
   a {
     &:after {
@@ -130,7 +130,7 @@ const BlinkyLink = styled.div`
     }
 
     font-size: var(--fz-xxl);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
 
     &:hover,
     &:focus {
@@ -180,12 +180,11 @@ const Nav = () => {
 
         <StyledLinks>
           <ol>
-            {navLinks &&
-              navLinks.map(({ url, name }, i) => (
-                <li key={i}>
-                  <Link to={url}>{name}</Link>
-                </li>
-              ))}
+            {navLinks?.map(({ url, name }, i) => (
+              <li key={i}>
+                <Link to={url}>{name}</Link>
+              </li>
+            ))}
           </ol>
           <div>{ResumeLink}</div>
         </StyledLinks>

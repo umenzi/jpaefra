@@ -20,7 +20,7 @@ const StyledHeroSection = styled.section`
   h1 {
     margin: 0 0 30px 4px;
     color: var(--red);
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
 
@@ -67,17 +67,14 @@ const Hero = () => {
   // Typing effect
   const three = (
     <h3 className="big-heading">
-      <ReactTyped strings={TEXTS} typeSpeed={100} smartBackspace={true}
-        backDelay={1500} backSpeed={50} loop/>
+      <ReactTyped strings={TEXTS} typeSpeed={100} smartBackspace backDelay={1500} backSpeed={50} loop/>
     </h3>
   );
   const four = (
-    <>
-      <p>
-        I'm a Master's student interested in Artificial Intelligence,
-        Reinforcement Learning, and Robot Learning.
-      </p>
-    </>
+    <p>
+      I&apos;m a Master&apos;s student interested in Artificial Intelligence,
+      Reinforcement Learning, and Robot Learning.
+    </p>
   );
   const five = (
     <a className="email-link" href="#about" rel="noreferrer">

@@ -52,7 +52,6 @@ const Head = ({ title, description, image }) => {
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
 
-      {/*TODO: Update the verification code*/}
       <meta name="google-site-verification" content="QSeQVZekk8D4fs1E_2epXuxHKhYn6nIoZazz-1IkPTA" />
 
       {/*We disable dark reader as our website is dark theme only*/}

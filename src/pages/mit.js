@@ -47,11 +47,11 @@ const UncopyrightPage = ({ location }) => {
         </p>
 
         <p>
-          I don't see my work as wholly original and something I alone created.
+          I don&apos;t see my work as wholly original and something I alone created.
           All of my ideas are built on top of other ideas that inspired
           me, either directly or indirectly. For instance, this website was
           originally based on <a href="https://github.com/bchiang7/v4">Brittany
-          Chiang</a>'s work.
+          Chiang</a>&apos;s work.
         </p>
 
         <p>

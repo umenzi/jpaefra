@@ -37,7 +37,7 @@ const StyledText = styled.div`
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
-      font-family: var(--font-mono);
+      font-family: var(--font-mono), monospace;
       font-size: var(--fz-xs);
 
       &:before {
@@ -145,7 +145,7 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! I am Javier Páez Franco, a Master's student
+              Hello! I am Javier Páez Franco, a Master&apos;s student
               at{' '}
               <a href="https://www.imperial.ac.uk/" rel="noreferrer">
                 Imperial College{' '}
@@ -172,16 +172,16 @@ const About = () => {
               cinematography 🎥.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Here are a few technologies I&apos;ve been working with recently:</p>
           </div>
 
           <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+            {skills?.map((skill, i) => <li key={i}>{skill}</li>)}
           </ul>
 
           <div>
             <p>
-              If you’re not sure how to to pronounce my name, you can watch
+              If you&apos;re not sure how to to pronounce my name, you can watch
               this{' '}
               <a
                 href="https://youtu.be/Uar7SUKusEk?si=Utd_sOSK9Ra4hIWI"> video</a>.
