@@ -26,6 +26,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
               published
             }
+            fields {
+              readingTime {
+                minutes
+              }
+            }
           }
         }
       }
@@ -63,6 +68,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: postTemplate,
       context: {
         slug: post.node.frontmatter.slug,
+        readingTime: post.node.fields.readingTime.minutes,
         previous,
         next,
       },
@@ -75,6 +81,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: postTemplate,
       context: {
         slug: post.node.frontmatter.slug,
+        readingTime: post.node.fields.readingTime.minutes,
       },
     });
   });

@@ -50,7 +50,8 @@ const StyledPostContent = styled.div`
 const PostTemplate = ({ data, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tags } = frontmatter;
-  const { slug, previous, next } = pageContext;
+  const { slug, readingTime, previous, next } = pageContext;
+  const minutes = Number((readingTime).toFixed());
 
   return (
     <Layout location={slug}>
@@ -64,6 +65,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
         <StyledPostHeader>
           <h1 className="medium-heading">{title}</h1>
+
           <p className="subtitle">
             <time>
               {new Date(date).toLocaleDateString('en-US', {
@@ -81,6 +83,12 @@ const PostTemplate = ({ data, pageContext }) => {
                   #{tag}
                 </Link>
               ))}
+          </p>
+
+          <Spacer/>
+
+          <p className="subtitle">
+            {minutes} {minutes === 1 ? 'minute' : 'minutes'}
           </p>
         </StyledPostHeader>
 
