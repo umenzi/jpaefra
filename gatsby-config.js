@@ -7,7 +7,9 @@ module.exports = {
     description: 'Javier Paez is a researcher specialized in Machine Learning and Robot Learning.',
     siteUrl: 'https://jpaefra.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@jpaefra',
+    social: {
+      twitter: '@jpaefra',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -88,6 +90,7 @@ module.exports = {
             query: `
               {
                 allMarkdownRemark(
+                  limit: 1000,
                   filter: {
                     fileAbsolutePath: { regex: "/content/blog/" }
                     frontmatter: { draft: { ne: true } }
@@ -107,11 +110,13 @@ module.exports = {
               }
             `,
             output: 'index.xml',
-            title: 'Jpaefra\'s RSS Feed',
+            title: 'Jpaefra RSS Feed',
           },
         ],
       },
     },
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -160,6 +165,7 @@ module.exports = {
               maxWidth: 700,
               linkImagesToOriginal: true,
               quality: 90,
+              withWebp: true,
             },
           },
           {
@@ -188,6 +194,9 @@ module.exports = {
           }, // IMPORTANT: this must be ahead of the prism plugin, if present
           {
             resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
           },
           {
             resolve: `gatsby-remark-lazy-load`,
