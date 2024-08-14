@@ -147,6 +147,18 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-page-progress',
+      options: {
+        // we include all paths under the "/blog" route
+        includePaths: [{ regex: '^/blog' }],
+        height: 3,
+        prependToBody: false,
+        color: `#f6bdb9`, // --red-tint variable
+        footerHeight: 500,
+        headerHeight: 0,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
