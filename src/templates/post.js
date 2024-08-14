@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Layout, Spacer } from '@components';
+import { Head, Layout, Spacer } from '@components';
 
 const StyledPostContainer = styled.main`
   max-width: 1200px;
@@ -50,12 +49,16 @@ const StyledPostContent = styled.div`
 const PostTemplate = ({ data, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tags } = frontmatter;
-  const { slug, readingTime, previous, next } = pageContext;
+  const { slug, readingTime, previous, next, image } = pageContext;
   const minutes = Number((readingTime).toFixed());
 
   return (
     <Layout location={slug}>
-      <Helmet title={title}/>
+      <Head
+        title={title}
+        description={frontmatter.description}
+        image={image}
+      />
 
       <StyledPostContainer>
         <span className="breadcrumb">
@@ -79,7 +82,7 @@ const PostTemplate = ({ data, pageContext }) => {
               tags.length > 0 &&
               tags.map((tag, i) => (
                 <Link key={i} to={`/blog/tags/${kebabCase(tag)}/`}
-                  className="tag">
+                      className="tag">
                   #{tag}
                 </Link>
               ))}
@@ -92,7 +95,7 @@ const PostTemplate = ({ data, pageContext }) => {
           </p>
         </StyledPostHeader>
 
-        <StyledPostContent dangerouslySetInnerHTML={{ __html: html }}/>
+        <StyledPostContent dangerouslySetInnerHTML={{__html: html}}/>
 
         <Spacer/>
 

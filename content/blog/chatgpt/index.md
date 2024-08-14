@@ -1,10 +1,11 @@
 ---
 title: Build a ChatGPT CLI 🤖
 description: Build a ruby gem that allows you to interact with the ChatGPT API from the command line.
-date: 2023-05-05
 draft: false
+date: 2023-05-05
 slug: /blog/chatgpt/
-published: true
+coverImage: None
+blogOgImage: None
 tags:
   - ChatGPT
   - Ruby

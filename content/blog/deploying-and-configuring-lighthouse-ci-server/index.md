@@ -1,21 +1,22 @@
 ---
 title: Deploying and Configuring Lighthouse CI Server
 description: Learn how to deploy and configure a LHCI server to Railway
-slug: /blog/deploying-and-configuring-lighthouse-ci-server/
+draft: false
 date: 2023-10-17
+slug: /blog/deploying-and-configuring-lighthouse-ci-server/
 coverImage: ./cover.jpg
 blogOgImage: ./og-image.jpg
-published: true
 tags:
   - Lighthouse
   - Performance
 ---
 
 <figure>
-<img alt="Lighthouse on a rocky beach" src="./cover.jpg" />
-<figcaption class="photo-caption">
-Photo by <a href="https://unsplash.com/@_everaldo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Everaldo Coelho</a> on <a href="https://unsplash.com/photos/KPaSCpklCZw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-</figcaption>
+  <img alt="Lighthouse on a rocky beach" src="./cover.jpg" />
+  <figcaption class="photo-caption">
+    Photo by <a href="https://unsplash.com/@_everaldo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Everaldo Coelho</a> on <a href="https://unsplash.com/photos/KPaSCpklCZw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  </figcaption>
+</figure>
 
 If you are into web development, you must have come across the term "Lighthouse score". It is a unanimous way of measuring how well the website performs in the wild. To measure the Lighthouse score, you can use Lighthouse. Lighthouse is an open-source tool that monitors and measures your website's performance, quality, and correctness.
 
