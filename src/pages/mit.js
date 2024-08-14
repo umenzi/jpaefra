@@ -28,7 +28,7 @@ const StyledMainContainer = styled.main`
   }
 `;
 
-const UncopyrightPage = ({ location }) => {
+const CopyrightPage = ({ location }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -80,8 +80,8 @@ const UncopyrightPage = ({ location }) => {
   );
 };
 
-UncopyrightPage.propTypes = {
+CopyrightPage.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default UncopyrightPage;
+export default CopyrightPage;
