@@ -4,7 +4,7 @@ import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Layout } from '@components';
+import { Layout, Spacer } from '@components';
 
 const StyledPostContainer = styled.main`
   max-width: 1200px;
@@ -47,12 +47,13 @@ const StyledPostContent = styled.div`
   }
 `;
 
-const PostTemplate = ({ data, location }) => {
+const PostTemplate = ({ data, pageContext }) => {
   const { frontmatter, html } = data.markdownRemark;
   const { title, date, tags } = frontmatter;
+  const { slug, previous, next } = pageContext;
 
   return (
-    <Layout location={location}>
+    <Layout location={slug}>
       <Helmet title={title}/>
 
       <StyledPostContainer>
@@ -83,8 +84,40 @@ const PostTemplate = ({ data, location }) => {
           </p>
         </StyledPostHeader>
 
-        {/*eslint-disable-next-line react/no-danger*/}
         <StyledPostContent dangerouslySetInnerHTML={{ __html: html }}/>
+
+        <Spacer/>
+
+        <nav>
+          <ul
+            style={{
+              display: `flex`,
+              flexWrap: `wrap`,
+              justifyContent: `space-between`,
+              listStyle: `none`,
+              padding: 0,
+              // truncate overflowing text
+              overflow: `hidden`,
+              textOverflow: `ellipsis`,
+              whiteSpace: `nowrap`,
+            }}
+          >
+            <li>
+              {previous && (
+                <Link to={previous.frontmatter.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.frontmatter.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul>
+        </nav>
       </StyledPostContainer>
     </Layout>
   );

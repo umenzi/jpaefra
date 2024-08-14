@@ -22,7 +22,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         edges {
           node {
             frontmatter {
+              title
               slug
+              published
             }
           }
         }
@@ -43,12 +45,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create blog detail pages
   const posts = result.data.postsRemark.edges;
+  const publishedPosts = posts.filter(edge => edge.node.frontmatter.published);
+  const unpublishedPosts = posts.filter(
+    edge => !edge.node.frontmatter.published,
+  );
 
-  posts.forEach(({ node }) => {
+  publishedPosts.forEach((post, index) => {
+    const previous =
+      index === publishedPosts.length - 1
+        ? null
+        : publishedPosts[index + 1].node;
+
+    const next = index === 0 ? null : publishedPosts[index - 1].node;
+
     createPage({
-      path: node.frontmatter.slug,
+      path: post.node.frontmatter.slug,
       component: postTemplate,
-      context: {},
+      context: {
+        slug: post.node.frontmatter.slug,
+        previous,
+        next,
+      },
+    });
+  });
+
+  unpublishedPosts.forEach(post => {
+    createPage({
+      path: post.node.frontmatter.slug,
+      component: postTemplate,
+      context: {
+        slug: post.node.frontmatter.slug,
+      },
     });
   });
 

@@ -4,6 +4,7 @@ description: Build a ruby gem that allows you to interact with the ChatGPT API f
 date: 2023-05-05
 draft: false
 slug: /blog/chatgpt/
+published: true
 tags:
   - ChatGPT
   - Ruby
