@@ -297,6 +297,7 @@ const Jobs = () => {
 
                   <p className="range">{range}</p>
 
+                  { /*eslint-disable-next-line react/no-danger*/ }
                   <div dangerouslySetInnerHTML={{ __html: html }}/>
                 </StyledTabPanel>
               </CSSTransition>

@@ -83,6 +83,7 @@ const PostTemplate = ({ data, location }) => {
           </p>
         </StyledPostHeader>
 
+        {/*eslint-disable-next-line react/no-danger*/}
         <StyledPostContent dangerouslySetInnerHTML={{ __html: html }}/>
       </StyledPostContainer>
     </Layout>

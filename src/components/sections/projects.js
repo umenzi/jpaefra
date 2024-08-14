@@ -246,6 +246,7 @@ const Projects = () => {
             </a>
           </h3>
 
+          {/*eslint-disable-next-line react/no-danger*/}
           <div className="project-description"
             dangerouslySetInnerHTML={{ __html: html }}/>
         </header>

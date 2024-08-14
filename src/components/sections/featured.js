@@ -371,6 +371,7 @@ const Featured = () => {
                   <div
                     className="project-description"
                     style={{ textAlign: 'start' }}
+                    // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: html }}
                   />
 
