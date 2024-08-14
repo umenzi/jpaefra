@@ -453,6 +453,20 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .photo-caption {
+    font-family: var(--font-mono), monospace;
+    text-align: center;
+    font-style: italic;
+    font-size: var(--fz-xxs);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--slate);
+
+    a {
+      color: var(--red-tint);
+    }
+  }
+
   .gatsby-image-outer-wrapper {
     height: 100%;
   }
