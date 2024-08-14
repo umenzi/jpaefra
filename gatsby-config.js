@@ -153,7 +153,7 @@ module.exports = {
         includePaths: [{ regex: '^/blog' }],
         height: 3,
         prependToBody: false,
-        color: `#f6bdb9`, // --red-tint variable
+        color: `#e85a4f`, // --red variable
         footerHeight: 500,
         headerHeight: 0,
       },
