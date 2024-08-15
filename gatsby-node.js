@@ -25,8 +25,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               title
               slug
               draft
-              coverImage
-              blogOgImage
             }
             fields {
               readingTime {
@@ -65,10 +63,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const next = index === 0 ? null : publishedPosts[index - 1].node;
 
-    let cover = post.node.frontmatter.coverImage;
-    cover = (cover.toLowerCase() === 'none') ? null : cover;
-    let og = post.node.frontmatter.blogOgImage;
-    og = (og.toLowerCase() === 'none') ? null : og;
+    // let cover = post.node.frontmatter.coverImage;
+    // cover = (cover.toLowerCase() === 'none') ? null : cover;
+    // let og = post.node.frontmatter.blogOgImage;
+    // og = (og.toLowerCase() === 'none') ? null : og;
 
     createPage({
       path: post.node.frontmatter.slug,
@@ -78,16 +76,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         readingTime: post.node.fields.readingTime.minutes,
         previous,
         next,
-        image: cover || og,
+        // image: cover || og,
       },
     });
   });
 
   unpublishedPosts.forEach(post => {
-    let cover = post.node.frontmatter.coverImage;
-    cover = (cover.toLowerCase() === 'none') ? null : cover;
-    let og = post.node.frontmatter.blogOgImage;
-    og = (og.toLowerCase() === 'none') ? null : og;
+    // let cover = post.node.frontmatter.coverImage;
+    // cover = (cover.toLowerCase() === 'none') ? null : cover;
+    // let og = post.node.frontmatter.blogOgImage;
+    // og = (og.toLowerCase() === 'none') ? null : og;
 
     createPage({
       path: post.node.frontmatter.slug,
@@ -95,7 +93,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: post.node.frontmatter.slug,
         readingTime: post.node.fields.readingTime.minutes,
-        image: cover || og,
+        // image: cover || og,
       },
     });
   });
