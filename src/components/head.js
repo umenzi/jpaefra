@@ -31,7 +31,9 @@ const Head = ({ title, description, image }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
+    // TODO: Fix metadata URLs as done in https://github.com/nikolalsvk/blog/tree/master/src/components
+    image: `${siteUrl}${defaultImage}`,
+    // image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
   };
 
