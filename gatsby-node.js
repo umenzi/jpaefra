@@ -17,14 +17,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       postsRemark: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/content/blog/" } }
         sort: { frontmatter: { date: DESC } }
-        limit: 1000
+        limit: 2000
       ) {
         edges {
           node {
             frontmatter {
               title
               slug
-              published
+              draft
+              coverImage
+              blogOgImage
             }
             fields {
               readingTime {
@@ -50,9 +52,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Create blog detail pages
   const posts = result.data.postsRemark.edges;
-  const publishedPosts = posts.filter(edge => edge.node.frontmatter.published);
+  const publishedPosts = posts.filter(edge => !edge.node.frontmatter.draft);
   const unpublishedPosts = posts.filter(
-    edge => !edge.node.frontmatter.published,
+    edge => edge.node.frontmatter.draft,
   );
 
   publishedPosts.forEach((post, index) => {
@@ -63,6 +65,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const next = index === 0 ? null : publishedPosts[index - 1].node;
 
+    let cover = post.node.frontmatter.coverImage;
+    cover = (cover.toLowerCase() === 'none') ? null : cover;
+    let og = post.node.frontmatter.blogOgImage;
+    og = (og.toLowerCase() === 'none') ? null : og;
+
     createPage({
       path: post.node.frontmatter.slug,
       component: postTemplate,
@@ -71,17 +78,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         readingTime: post.node.fields.readingTime.minutes,
         previous,
         next,
+        image: cover || og,
       },
     });
   });
 
   unpublishedPosts.forEach(post => {
+    let cover = post.node.frontmatter.coverImage;
+    cover = (cover.toLowerCase() === 'none') ? null : cover;
+    let og = post.node.frontmatter.blogOgImage;
+    og = (og.toLowerCase() === 'none') ? null : og;
+
     createPage({
       path: post.node.frontmatter.slug,
       component: postTemplate,
       context: {
         slug: post.node.frontmatter.slug,
         readingTime: post.node.fields.readingTime.minutes,
+        image: cover || og,
       },
     });
   });
