@@ -66,9 +66,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const next = index === 0 ? null : publishedPosts[index - 1].node;
 
     let cover = post.node.frontmatter.coverImage;
-    cover = (cover === "None" || cover === "none") ? null : cover;
+    cover = (cover.toLowerCase() === 'none') ? null : cover;
     let og = post.node.frontmatter.blogOgImage;
-    og = (og === "None" || og === "none") ? null : og;
+    og = (og.toLowerCase() === 'none') ? null : og;
 
     createPage({
       path: post.node.frontmatter.slug,
@@ -84,6 +84,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 
   unpublishedPosts.forEach(post => {
+    let cover = post.node.frontmatter.coverImage;
+    cover = (cover.toLowerCase() === 'none') ? null : cover;
+    let og = post.node.frontmatter.blogOgImage;
+    og = (og.toLowerCase() === 'none') ? null : og;
+
     createPage({
       path: post.node.frontmatter.slug,
       component: postTemplate,
