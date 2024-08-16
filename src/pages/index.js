@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Layout, Hero, About, Jobs, Featured, Projects, Contact } from '@components';
+import { useConsoleLogDevSignature } from '../utils/useConsoleLogDevSignature';
 
 const StyledMainContainer = styled.main`
   counter-reset: section;
@@ -70,12 +71,16 @@ const IndexPage = ({ location }) => {
     };
   }, []);
 
+  useConsoleLogDevSignature();
+
   // finally, we render the page
   return (
     <div>
       <GlobalStyle />
+
       <Layout location={location}>
         <Gradient className="gradient" />
+
         <StyledMainContainer className="fillHeight">
           <Hero />
           <About />
