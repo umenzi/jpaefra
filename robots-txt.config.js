@@ -1,164 +1,177 @@
 module.exports = {
-  host: "https://www.jpaefra.com",
-  sitemap: "https://www.jpaefra.com/sitemap-index.xml",
+  host: 'https://www.jpaefra.com',
+  sitemap: 'https://www.jpaefra.com/sitemap-index.xml',
   policy: [
     // we will block all the AI bots
+    // a nice updated list is: https://darkvisitors.com/agents
     {
-      userAgent: "Amazonbot",
-      disallow: ["/"],
+      userAgent: 'anthropic-ai',
+      disallow: ['/'],
     },
     {
-      userAgent: "anthropic-ai",
-      disallow: ["/"],
+      userAgent: 'Applebot-Extended',
+      disallow: ['/'],
     },
     {
-      userAgent: "Applebot",
-      disallow: ["/"],
+      userAgent: 'Bytespider',
+      disallow: ['/'],
     },
     {
-      userAgent: "Applebot-Extended",
-      disallow: ["/"],
+      userAgent: 'CCBot', // Block Common Crawl
+      disallow: ['/'],
     },
     {
-      userAgent: "Bytespider",
-      disallow: ["/"],
+      userAgent: 'ChatGPT',
+      disallow: ['/'],
     },
     {
-      userAgent: "CCBot", // Block Common Crawl
-      disallow: ["/"],
+      userAgent: 'ChatGPT-User',
+      disallow: ['/'],
     },
     {
-      userAgent: "ChatGPT",
-      disallow: ["/"],
+      userAgent: 'ClaudeBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "ChatGPT-User",
-      disallow: ["/"],
+      userAgent: 'Claude-Web',
+      disallow: ['/'],
     },
     {
-      userAgent: "ClaudeBot",
-      disallow: ["/"],
+      userAgent: 'cohere-ai',
+      disallow: ['/'],
     },
     {
-      userAgent: "Claude-Web",
-      disallow: ["/"],
+      userAgent: 'Diffbot',
+      disallow: ['/'],
     },
     {
-      userAgent: "cohere-ai",
-      disallow: ["/"],
+      userAgent: 'FacebookBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "Diffbot",
-      disallow: ["/"],
+      userAgent: 'facebookexternalhit',
+      disallow: ['/'],
     },
     {
-      userAgent: "FacebookBot",
-      disallow: ["/"],
+      userAgent: 'FriendlyCrawler',
+      disallow: ['/'],
     },
     {
-      userAgent: "facebookexternalhit",
-      disallow: ["/"],
+      userAgent: 'AwarioRssBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "FriendlyCrawler",
-      disallow: ["/"],
+      userAgent: 'AwarioSmartBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "AwarioRssBot",
-      disallow: ["/"],
+      userAgent: 'Google-Extended', // Google Bard & Gemini AI
+      disallow: ['/'],
     },
     {
-      userAgent: "AwarioSmartBot",
-      disallow: ["/"],
+      userAgent: 'GoogleOther',
+      disallow: ['/'],
     },
     {
-      userAgent: "Google-Extended", // Google Bard & Gemini AI
-      disallow: ["/"],
+      userAgent: 'GoogleOther-Image',
+      disallow: ['/'],
     },
     {
-      userAgent: "GoogleOther",
-      disallow: ["/"],
+      userAgent: 'GoogleOther-Video',
+      disallow: ['/'],
     },
     {
-      userAgent: "GoogleOther-Image",
-      disallow: ["/"],
+      userAgent: 'GPTBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "GoogleOther-Video",
-      disallow: ["/"],
+      userAgent: 'magpie-crawler',
+      disallow: ['/'],
     },
     {
-      userAgent: "GPTBot",
-      disallow: ["/"],
+      userAgent: 'ImagesiftBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "magpie-crawler",
-      disallow: ["/"],
+      userAgent: 'DataForSeoBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "ImagesiftBot",
-      disallow: ["/"],
+      userAgent: 'img2dataset',
+      disallow: ['/'],
     },
     {
-      userAgent: "DataForSeoBot",
-      disallow: ["/"],
+      userAgent: 'OAI-SearchBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "img2dataset",
-      disallow: ["/"],
+      userAgent: 'omgili',
+      disallow: ['/'],
     },
     {
-      userAgent: "Meta-ExternalAgent",
-      disallow: ["/"],
+      userAgent: 'omgilibot',
+      disallow: ['/'],
     },
     {
-      userAgent: "OAI-SearchBot",
-      disallow: ["/"],
+      userAgent: 'PerplexityBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "omgili",
-      disallow: ["/"],
+      userAgent: 'PetalBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "omgilibot",
-      disallow: ["/"],
+      userAgent: 'peer39_crawler',
+      disallow: ['/'],
     },
     {
-      userAgent: "PerplexityBot",
-      disallow: ["/"],
+      userAgent: 'Quora-Bot',
+      disallow: ['/'],
     },
     {
-      userAgent: "PetalBot",
-      disallow: ["/"],
+      userAgent: 'Scrapy',
+      disallow: ['/'],
     },
     {
-      userAgent: "peer39_crawler",
-      disallow: ["/"],
+      userAgent: 'Timpibot',
+      disallow: ['/'],
     },
     {
-      userAgent: "Scrapy",
-      disallow: ["/"],
+      userAgent: 'VelenPublicWebCrawler',
+      disallow: ['/'],
     },
     {
-      userAgent: "Timpibot",
-      disallow: ["/"],
+      userAgent: 'YouBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "VelenPublicWebCrawler",
-      disallow: ["/"],
+      userAgent: 'TurnitinBot',
+      disallow: ['/'],
     },
     {
-      userAgent: "YouBot",
-      disallow: ["/"],
+      userAgent: 'Meta-ExternalAgent',
+      disallow: ['/'],
     },
     {
-      userAgent: "Meta-ExternalFetcher",
-      disallow: ["/"],
+      userAgent: 'Meta-externalagent',
+      disallow: ['/'],
     },
-    // The following are commented out to ensure indexing
+    {
+      userAgent: 'Meta-ExternalFetcher',
+      disallow: ['/'],
+    },
+    // The following are commented out to ensure correct indexing
     // {
     //   userAgent: "AdsBot-Google",
     //   disallow: ["/"],
     // },
+    // {
+    //   userAgent: 'Amazonbot',
+    //   disallow: ['/'],
+    // },
+    // {
+    //   userAgent: 'Applebot',
+    //   disallow: ['/'],
+    // },
   ],
-}
+};
