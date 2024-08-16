@@ -58,7 +58,7 @@ const Footer = () => (
         {socialMedia?.map(({ name, url }, i) => (
           <li key={i}>
             <a href={url} aria-label={name}>
-              <Icon name={name}/>
+              <Icon name={name} />
             </a>
           </li>
         ))}
@@ -67,8 +67,7 @@ const Footer = () => (
 
     <StyledCredit tabIndex="-1">
       <div>
-        Designed and built by<a
-          href="https://github.com/umenzi/jpaefra">Javier Páez.</a>
+        Designed and built by<a href="https://github.com/umenzi/jpaefra">Javier Páez.</a>
       </div>
 
       <div>
@@ -76,8 +75,7 @@ const Footer = () => (
       </div>
 
       <div>
-        This project is licensed under the<a
-          href="/mit">MIT License.</a>
+        This project is licensed under the<a href="/mit">MIT License.</a>
       </div>
     </StyledCredit>
   </StyledFooter>

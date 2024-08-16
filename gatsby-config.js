@@ -23,7 +23,12 @@ module.exports = {
         output: `/`,
       },
     },
-    `gatsby-plugin-robots-txt`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        configFile: 'robots-txt.config.js',
+      },
+    },
     {
       resolve: 'gatsby-plugin-simple-analytics',
       options: {
