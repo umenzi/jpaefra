@@ -453,6 +453,22 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .other-posts {
+    border-top: 3px solid #fafafa;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      // truncate overflowing text
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
   .photo-caption {
     font-family: var(--font-mono), monospace;
     text-align: center;

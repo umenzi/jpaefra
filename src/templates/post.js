@@ -16,7 +16,7 @@ const StyledPostHeader = styled.header`
   }
 `;
 const StyledPostContent = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 75px;
 
   h1, h2, h3, h4, h5, h6 {
     margin: 2em 0 1em;
@@ -99,22 +99,8 @@ const PostTemplate = ({ data, pageContext }) => {
 
         <StyledPostContent dangerouslySetInnerHTML={{ __html: html }}/>
 
-        <Spacer/>
-
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-              // truncate overflowing text
-              overflow: `hidden`,
-              textOverflow: `ellipsis`,
-              whiteSpace: `nowrap`,
-            }}
-          >
+        <nav className="other-posts">
+          <ul>
             <li>
               {previous && (
                 <Link to={previous.frontmatter.slug} rel="prev">
